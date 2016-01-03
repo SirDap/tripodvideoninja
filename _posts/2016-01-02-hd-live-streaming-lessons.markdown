@@ -15,13 +15,12 @@ In hindsight there were a couple things i'd do differently next year:
 
 Here is an example of the AV sync issue. The still center cam is HDV via FireWire and the panning closeup cam is uncompressed HDMI via a Blackmagic Mini Recorder. Audio is not switched and is constant from the closeup camera (pulled from the mixer). Note how the center cam's video is approximately 0.5 sec behind the audio, the time for the data to decompress!
 
-<video width="100%" controls>
-  <source src="{{ site.url }}/assets/videos/Live_Streaming_HDV_A_V_Sync_Issue_Example-SD.mp4" type="video/mp4">
-Your browser does not support the video tag. Please use a browser that supports HTML5 to view the video.
-</video>
+<div class="videoWrapper">
+<iframe src="https://player.vimeo.com/video/150565246?title=0&byline=0" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+</div>
 
+###References
 
-References:
-* A person who's also used the Mini Record and Intensity Shuttle USB on a MBP with success! http://stretchinternet.com/blog/2013/07/high-definition-three-camera-inputs-one-laptop-3500/
-* Explains how it takes a few milliseconds longer to decode HDV video than the audio, hence the sync issue when using it as a live stream source http://forum.telestream.net/forum/messageview.aspx?catid=45&threadid=10289
-* Confirms HDV buffering on output of ~ 1 sec https://obsproject.com/forum/threads/ability-to-synchronize-cameras.23166/
+* A person who's also used the Mini Record and Intensity Shuttle USB on a MBP with success! <http://stretchinternet.com/blog/2013/07/high-definition-three-camera-inputs-one-laptop-3500/>
+* Explains how it takes a few milliseconds longer to decode HDV video than the audio, hence the sync issue when using it as a live stream source. <http://forum.telestream.net/forum/messageview.aspx?catid=45&threadid=10289>
+* Confirms HDV buffering on output of ~ 1 sec. <https://obsproject.com/forum/threads/ability-to-synchronize-cameras.23166/>
