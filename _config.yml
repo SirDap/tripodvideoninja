@@ -11,8 +11,8 @@ email: krishna@tripodvideo.ninja
 description: > 
   Freelance videographer specializing in recording and streaming of classical music concerts.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://smilingtripod.com" # the base hostname & protocol for your site
-#twitter_username: jekyllrb
+url: "http://tripodvideo.ninja" # the base hostname & protocol for your site
+twitter_username: tripodvideo
 #github_username:  jekyll
 
 # Build settings
