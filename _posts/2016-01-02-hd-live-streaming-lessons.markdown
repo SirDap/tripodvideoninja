@@ -16,6 +16,6 @@ In hindsight there were a couple things i'd do differently next year:
 Here is an example of the AV sync issue. The still center cam is HDV via FireWire and the panning closeup cam is uncompressed HDMI via a Blackmagic Mini Recorder. Audio is not switched and is constant from the closeup camera (pulled from the mixer). Note how the center cam's video is approximately 0.5 sec behind the audio, the time for the data to decompress!
 
 <video width="420" height="236" controls>
-  <source src="{{ sit.url }}/assets/videos/Chhandayan-ANC2015-Live-HDV_AV_Sync_Issue.mp4" type="video/mp4">
+  <source src="{{ site.url }}/assets/videos/Chhandayan-ANC2015-Live-HDV_AV_Sync_Issue.mp4" type="video/mp4">
 Your browser does not support the video tag. Please use one that supports HTML5 to display the content.
 </video>
