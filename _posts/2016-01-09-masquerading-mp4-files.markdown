@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Masquerading MP4 Files from Sony XAVC-S"
-subtitle: "Opening XAVC-S Video with QuickTime Player 7, Compressor 4 and MPEG Streamclip"
+title:  "Opening XAVC-S Video with QuickTime Player 7, Compressor 4 and MPEG Streamclip"
+subtitle: "Masquerading MP4 Files from Sony XAVC-S for the Fail"
 date:   2016-01-09 09:05:26 -0500
 categories: codecs qt7
 ---
