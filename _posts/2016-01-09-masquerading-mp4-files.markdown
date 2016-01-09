@@ -6,7 +6,7 @@ date:   2016-01-09 09:05:26 -0500
 categories: codecs qt7
 ---
 
-For a long time, Sony's XAVC-S codec was completely a mystery to me. It was the new format the Sony CX-900 and AX-100 use, and when those cameras originally shipped, the files could not be edited natively with FCP X. ([Version 10.2 added that functionality](https://support.apple.com/en-us/HT202252){:target="_blank"}.)
+For a long time, Sony's XAVC-S codec was completely a mystery to me. It was the new format the Sony CX900 and AX100 use, and when those cameras originally shipped, the files could not be edited natively with FCP X. ([Version 10.2 added that functionality](https://support.apple.com/en-us/HT202252){:target="_blank"}.)
 
 What was particularly perplexing to me was after the software update, QuickTime Player X and FCP X would open the files, but QuickTime Player 7 and Compressor 4 wouldn't. QT7 was understandably written on legacy 32-bit frameworks[^1], but shouldn't Compressor 4 use the same new 64-bit frameworks (AVFoundation, CoreMediaIO, etc.) that QT X and FCP X used?
 
