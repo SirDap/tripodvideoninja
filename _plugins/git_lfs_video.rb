@@ -1,7 +1,7 @@
 # _plugins/git_lfs_video.rb
 # special thanks to: https://talk.jekyllrb.com/t/how-to-create-simple-custom-note-tag/517
 module Jekyll
-  class GitLfsVideo < Liquid::Tag
+  class GitLfsDownload < Liquid::Tag
 
     def initialize(tag_name, text, tokens)
       super
@@ -18,4 +18,4 @@ module Jekyll
   end
 end
 
-Liquid::Template.register_tag('lfs_video', Jekyll::GitLfsVideo)
+Liquid::Template.register_tag('gitlfs', Jekyll::GitLfsDownload)
