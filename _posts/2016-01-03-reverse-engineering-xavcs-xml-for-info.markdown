@@ -15,7 +15,7 @@ The AX100 has three FPS settings when recording to the XAVC-S HD file format (60
 
 Interestingly, the bitrate which differentiates XAVC-S HD (50 Mbps) and XAVC-S 4K (60 Mbps) is not present in the clip XML. It is however present in `M4ROOT/MEDIAPRO.XML` file!
 
-For this test i took 5 shots:
+For this test there were five shots:
 
 * XAVC-S HD, 60 fps
 * XAVC-S HD, 30 fps
