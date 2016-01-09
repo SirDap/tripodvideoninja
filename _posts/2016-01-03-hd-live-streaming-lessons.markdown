@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "HDV Live Streaming Lessons"
+title:  "HDV Live Streaming Lessons Learned"
 date:   2016-01-03 15:25:56 -0500
 categories: livestream hdv
 ---
@@ -10,12 +10,12 @@ Last May, for Chhandayan's All-Night Concert 2015 in NYC, i used two cameras in 
 In hindsight there were a couple things i'd do differently next year.
 
 ### Offload SD card footage to a separate laptop rather than using the streaming laptop
-Red Giant's neat software [Offload](http://www.redgiant.com/products/offload/) made it really simple to transfer footage from the Sony 4K cam. Since it also compares checksums (of these giant video files), i suspect it caused some dropped frames—especially since Wirecast was also writing to the same disk!
+Red Giant's neat software [Offload](http://www.redgiant.com/products/offload/){:target="_blank"} made it really simple to transfer footage from the Sony 4K cam. Since it also compares checksums (of these giant video files), i suspect it caused some dropped frames—especially since Wirecast was also writing to the same disk!
 
 Best to use another machine, like a MacBook Air to dump SD footage. Any machine with a fast, built-in SD card reader really. (Did that part correctly at least.)
 
 ### Use the HDMI output from the HDV camera when streaming with another camera/audio signal
-If the streaming laptop had another Thunderbolt port, this would have been a no-brainer a long time ago: rock two [Blackmagic Mini Recorder](https://www.blackmagicdesign.com/products/ultrastudiothunderbolt/techspecs/W-DLUS-04)s via Thunderbolt. But it doesn't, and the Mini Recorder is an endpoint with no daisy chaining (why o why).
+If the streaming laptop had another Thunderbolt port, this would have been a no-brainer a long time ago: rock two [Blackmagic Mini Recorder](https://www.blackmagicdesign.com/products/ultrastudiothunderbolt/techspecs/W-DLUS-04){:target="_blank"}s via Thunderbolt. But it doesn't, and the Mini Recorder is an endpoint with no daisy chaining (why o why).
 
 When the live stream source is HDV over FireWire, the camera actually compresses the video before it sends it over FireWire; DV video on the other hand, is a low enough bitrate to be uncompressed over FireWire. So compressed HDV has to be _decompressed_ by the receiving side, i.e. Wirecast, which takes a few milliseconds. This makes the HDV FireWire feed slightly behind
 This might have been part of our sync issues.
@@ -26,7 +26,7 @@ Here is an example of the AV sync issue. The still center cam is HDV via FireWir
 <iframe src="https://player.vimeo.com/video/150565246?title=0&byline=0" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 </div>
 
-i originally thought, "Is it possible to delay the video of one source so that it's in sync with the other?" Although Wirecast allows for an audio delay offset on any source, there's no "source offset" option as [this Wirecast support thread explains](http://forum.telestream.net/forum/messageview.aspx?catid=44&threadid=10185); one way might be to pipe the video through VLC to timeshift it with the play/pause button, but that's not precise enough here, for starters.
+i originally thought, "Is it possible to delay the video of one source so that it's in sync with the other?" Although Wirecast allows for an audio delay offset on any source, there's no "source offset" option as [this Wirecast support thread explains](http://forum.telestream.net/forum/messageview.aspx?catid=44&threadid=10185){:target="_blank"}; one way might be to pipe the video through VLC to timeshift it with the play/pause button, but that's not precise enough here, for starters.
 
 
 ### Don't rely on Wirecast to save HDV footage 
@@ -39,7 +39,7 @@ Furthermore, there's no straightforward way to save HDV footage *as* HDV footage
 * Save to MiniDV tape and transfer afterwards. Gross, but works. Tapes are about $3 each on Amazon, but they create waste because they'll create dropouts if re-used too much. (Stay in school folks.)
 * Use [ScopeBox](http://www.divergentmedia.com/scopebox) to save to disk via FireWire. Tried and tested approach for > 5 years, and preserves timecode. Maybe the streaming laptop could even handle it ... if we save to a separate disk. Saving an m2t stream doesn't take much CPU.
 
-Note: recording to SSD via [Blackmagic HyperDeck Shuttle](https://www.blackmagicdesign.com/products/hyperdeckshuttle) is out, because we need the HDMI output for the live stream.
+Note: recording to SSD via [Blackmagic HyperDeck Shuttle](https://www.blackmagicdesign.com/products/hyperdeckshuttle){:target="_blank"} is out, because we need the HDMI output for the live stream.
 
 ###References
 
