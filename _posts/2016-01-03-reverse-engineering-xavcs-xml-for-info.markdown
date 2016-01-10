@@ -2,7 +2,7 @@
 layout: post
 title:  "Reverse Engineering XAVC-S XML Files for Info"
 date:   2016-01-03 18:15:56 -0500
-categories: codecs sony metadata
+categories: codecs metadata
 ---
 
 Many new Sony video cameras (like the [FDR-AX100](http://www.sony.com/electronics/handycam-camcorders/fdr-ax100) and [HDR-CX900](http://www.sony.com/electronics/handycam-camcorders/hdr-cx900)) record into the new XAVC-S format. XAVC-S writes to mp4 container files, and along side them sit nice little XML files with metadata.
