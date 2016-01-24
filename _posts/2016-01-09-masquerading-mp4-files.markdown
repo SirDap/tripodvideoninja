@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Opening XAVC-S Video with QuickTime Player 7, Compressor 4 and MPEG Streamclip"
+title:  "Rename Away! Opening XAVC-S Video with QuickTime Player 7, Compressor 4.2 and MPEG Streamclip"
 subtitle: "Masquerading MP4 Files from Sony XAVC-S for the Fail"
 date:   2016-01-09 09:05:26 -0500
 categories: codecs qt7
@@ -8,14 +8,14 @@ categories: codecs qt7
 
 For a long time, Sony's XAVC-S codec was completely a mystery to me. It was the new format the Sony CX900 and AX100 use, and when those cameras originally shipped, the files could not be edited natively with FCP X. ([Version 10.2 added that functionality](https://support.apple.com/en-us/HT202252){:target="_blank"}.)
 
-What was particularly perplexing to me was after the software update, QuickTime Player X and FCP X would open the files, but QuickTime Player 7 and Compressor 4 wouldn't. QT7 was understandably written on legacy 32-bit frameworks[^1], but shouldn't Compressor 4 use the same new 64-bit frameworks (AVFoundation, CoreMediaIO, etc.) that QT X and FCP X used?
+What was particularly perplexing to me was after the software update, QuickTime Player X and FCP X would open the files, but QuickTime Player 7 and Compressor 4.2 wouldn't. QT7 was understandably written on legacy 32-bit frameworks[^1], but shouldn't Compressor 4.2 use the same new 64-bit frameworks (AVFoundation, CoreMediaIO, etc.) that QT X and FCP X used?
 
 ![Sony XAVC-S MP4 file unrecognized by QuickTime Player 7]({% asset_path xavcs-failure-qt7-open.png %})
 ![Sony XAVC-S MP4 file unrecognized by MPEG Streamclip]({% asset_path xavcs-failure-streamclip-open %})
 ![MPEG Streamclip further complains on Open Anyway]({% asset_path xavcs-failure-streamclip-open-anyway %})
 ![Sony XAVC-S MP4 file unrecognized by Compressor 4]({% asset_path xavcs-failure-compressor4-open %})
 
-"Invalid sample description" ... "can't find video or audio tracks" ... very interesting. Thanks to the folks folks at Divergent Media, now i know XAVC-S is just H.264 video inside the container.[^2] Should be no reason QT7 can't open it.
+"Invalid sample description" ... "can't find video or audio tracks" ... very interesting. Almost suggests the programs can't read some header metadata. Thanks to the folks folks at Divergent Media, now i know XAVC-S is just H.264 video inside the container.[^2] Should be no reason QT7 can't open it.
 
 Indeed that's the case!
 
@@ -34,17 +34,17 @@ Sure enough, now QT7, Compressor 4 and MPEG Streamclip all open the file once ag
 
 Um, ya.
 
-My guess is, in the old days any file that ended in MP4 was thought to conform the MP4 standard. Makes sense. That implies the audio stream for MP4 files should be AAC, MP3 or a few other audio codecs.[^3] In that bucket list is _not_ PCM audio! This strict convention is what i surmise QT7 and Compressor 4 adhere to and therefore could not open the XAVC-S file from the video camera.
+My guess is, in the old days any file that ended in MP4 was thought to conform the MP4 standard. Makes sense, right? That implies the audio stream for MP4 files should be AAC, MP3 or a few other audio codecs.[^3] In that bucket list is _not_ PCM audio! This strict convention is what i surmise QT7 and Compressor 4.2 adhere to and therefore could not open the XAVC-S file from the video camera.
 
-The renaming hint came from a StackExchange and FFMPEG page[^4] [^5] after searching for the QT7 error message `An invalid sample description was found in the movie`.
+The renaming hint came from a StackExchange[^4] and FFMPEG page[^5] after searching for the QT7 error message `An invalid sample description was found in the movie`.
 
 In the OP's case, a masquerading MP4 file contained both AAC and AC3 audio tracks—the latter which is not allowed per the MP4 spec. It's interesting to note Handbrake (version 0.10.2 x86_64 (2015061100)) now automatically renames the destination file extension from `mp4` to `m4v` upon adding an AC3 audio track! It seems programs like VLC, which have always played the file, and now QT X and FCP X, probably do not give much importance to the actual file extension but instead to the stream data inside and are thus more lenient.
 
 ### M4V is like Apple's New MOV
 
-Like the standard quicktime `mov` container, `m4v` seems to have more for flexibility for packaging MP4 streams—in this case, for PCM audio. After all, the `m4v` container is developed by Apple.[^6]
+Like the standard quicktime `mov` container, `m4v` seems to have more for flexibility for packaging MP4 streams—in this case, for PCM audio. After all, like `mov`, the `m4v` container is developed by Apple.[^6]
 
-For a long time, i placed the emphasis on the **v** of m4**v**—that it's MP4 video. But in a way, the emphasis is really on the **4**: it's like m**o**v but just with the middle letter changed.
+For a long time, i placed the emphasis on the **v** of m4**v**—that it's MP4 **v**ideo. But in a way, perhaps the emphasis is really on the **4**: it's like m**o**v but just with the middle letter changed for mp**4** files.
 
 ### Appendix
 
