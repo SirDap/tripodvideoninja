@@ -2,7 +2,7 @@
 layout: post
 title:  "The Quest for Media Management"
 date:   2016-01-08 18:15:56 -0500
-categories: organization footage fcp resolve
+categories: organization metadata
 ---
 
 ### The Dream
@@ -16,13 +16,14 @@ Yup, the dream.
 
 #### BulletProof
 
-BulletProof was my first choice once upon a time. Their initial rollout of the app, which did not support linking media, prevented my initial efforts: terabytes of existing footage can't really be copied somewhere else. They eventually added linking, though, but then the application didn't support Sony XAVC-S, which i use heavily. As of 2015-06-08 (v 12.7.0 of the Shooter Suite) the application is retired, due to lack of public interest. https://www.redgiant.com/products/shooter-suite/downloads/ http://www.provideocoalition.com/fare-thee-well-red-giant-bulletproof
+BulletProof was my first choice once upon a time. Their initial rollout of the app, which did not support linking media, prevented my initial efforts: terabytes of existing footage can't really be copied somewhere else. They eventually added linking, but then the application didn't support Sony XAVC-S, which i use heavily. As of 2015-06-08 (v 12.7.0 of the Shooter Suite) the application is retired, [due to lack of public interest](https://www.redgiant.com/products/shooter-suite/downloads/ http://www.provideocoalition.com/fare-thee-well-red-giant-bulletproof). 
 
 Cons:
 
 * No drag and drop to add new files to the catalog. Won't even jump to that folder. (Designed more to offload from SD cards.)
 * Markers can be added, but are all one color.
 * Video playback buggy in _Review_ panel. For example in the following picture, after clicking marker to select in the right hand side to jump back to, the cursorhead remains the same and now will not play
+
 * No smart bins. "Playlists" are all manual. 
 * Metadata section is detailed, but vertical dropdown is a lot of scrolling ...
 * No easy way to see recent catalogs. Have to open them manually.
