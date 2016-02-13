@@ -5,6 +5,8 @@ subtitle: "Hello open tagging. Goodbye fear of broken media links!"
 date:   2016-01-09 20:37:41 -0500
 categories: codecs metadata
 ---
+* TOC
+{:toc}
 
 There is quite a bit of literature[^1] [^2] [^3] [^4] [^5] on the net how Adobe applications can embed XMP metadata and modify original footage—wreaking havoc for other NLEs like FCP. Posts range as far back as 2011, the year FCP X was released, to even one in mid 2014.
 

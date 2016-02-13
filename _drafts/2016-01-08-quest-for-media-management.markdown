@@ -4,6 +4,8 @@ title:  "The Quest for Media Management"
 date:   2016-01-08 18:15:56 -0500
 categories: organization metadata
 ---
+* TOC
+{:toc}
 
 ### The Dream
 

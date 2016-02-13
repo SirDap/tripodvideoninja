@@ -5,6 +5,8 @@ subtitle: "Comparison of Timecode-generating Programs"
 date:   2016-01-24 11:37:23 -0500
 categories: timecode metadata
 ---
+* TOC
+{:toc}
 
 ### Where Has Timecode Gone?
 

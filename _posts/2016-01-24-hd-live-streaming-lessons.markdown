@@ -4,6 +4,8 @@ title:  "HDV Livestreaming Lessons Learned"
 date:   2016-01-24 14:34:38 -0500
 categories: livestream hdv
 ---
+* TOC
+{:toc}
 
 Last May, for Chhandayan's All-Night Concert 2015 in NYC, i used two cameras in the livestream for the first time. Little did i know, there was a lot to learn.
 

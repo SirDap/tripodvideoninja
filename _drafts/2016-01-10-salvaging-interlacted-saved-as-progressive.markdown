@@ -5,6 +5,8 @@ subtitle: Waking up From an HDV-H.264 Nightmare
 date:   2016-01-10 18:15:56 -0500
 categories: 
 ---
+* TOC
+{:toc}
 
 We'll start with a quote from Larry Jordan:
 

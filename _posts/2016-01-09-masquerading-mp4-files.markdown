@@ -5,6 +5,8 @@ subtitle: "Masquerading MP4 Files from Sony XAVC-S for the Fail"
 date:   2016-01-09 09:05:26 -0500
 categories: codecs qt7
 ---
+* TOC
+{:toc}
 
 For a long time, Sony's XAVC-S codec was completely a mystery to me. It was the new format the Sony CX900 and AX100 use, and when those cameras originally shipped, the files could not be edited natively with FCP X. ([Version 10.2 added that functionality](https://support.apple.com/en-us/HT202252){:target="_blank"}.)
 
