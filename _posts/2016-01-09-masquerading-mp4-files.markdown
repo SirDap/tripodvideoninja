@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Rename Away! Opening XAVC-S Video with QuickTime Player 7, Compressor 4.2 and MPEG Streamclip"
+title:  "Renaming XAVC-S to M4V to Open with QT7"
 subtitle: "Masquerading MP4 Files from Sony XAVC-S for the Fail"
 date:   2016-01-09 09:05:26 -0500
 categories: codecs qt7
@@ -23,12 +23,13 @@ Indeed that's the case!
 
 The fix? Rename the extension from `mp4` to `m4v`.
 
-Sure enough, now QT7, Compressor 4 and MPEG Streamclip all open the file once again. Hooray!
+Sure enough, now QT7, Compressor 4, MPEG Streamclip all open the file once again. Hooray!
 
 ![Sony XAVC-S as M4V successfully recognized by QuickTime Player 7]({% asset_path xavcs-success-qt7-m4v.png %})
 ![Sony XAVC-S as M4V successfully recognized by MPEG Streamclip]({% asset_path xavcs-success-streamclip-m4v.png %})
 ![Sony XAVC-S as M4V successfully recognized by Compressor 4]({% asset_path xavcs-success-compressor4-m4v.png %})
 
+This means Final Cut Pro 7 will open such files now too!
 
 ### But Why?
 
