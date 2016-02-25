@@ -14,7 +14,7 @@ In hindsight there were a couple things i'd do differently next year.
 ### Offload SD card footage to a separate laptop rather than using the streaming laptop
 Red Giant's neat software [Offload](http://www.redgiant.com/products/offload/){:target="_blank"} made it really simple to transfer footage from the Sony 4K cam. Since it also compares checksums (of these giant video files), i suspect it caused some dropped frames—especially since Wirecast was also writing to the same disk!
 
-Best to use another machine, like a MacBook Air to dump SD footage. Any machine with a fast, built-in SD card reader really. (Did that part correctly at least.)
+Best to use another machine like a MacBook Air to dump SD footage. Any machine with a fast, built-in SD card reader really. (Did that part correctly at least.)
 
 ### Stream Using HDMI Output from HDV (Especially When Streaming With Another Camera)
 If the streaming laptop had another Thunderbolt port, this would have been a no-brainer a long time ago: rock two [Blackmagic Mini Recorder](https://www.blackmagicdesign.com/products/ultrastudiothunderbolt/techspecs/W-DLUS-04){:target="_blank"}s via Thunderbolt. But it doesn't, and the Mini Recorder is an endpoint with no daisy chaining (why o why).
