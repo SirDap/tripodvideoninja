@@ -19,7 +19,11 @@ permalink: /about/
 	* 8 GB 1600 MHz DDR3 RAM
 	* [1TB Samsung 840 EVO SSD](http://www.samsung.com/us/support/owners/product/MZ-7TE1T0BW)
 	* Only limitation of this guy is 1 thunderbolt port
-* [MacBookAir6,2](http://www.everymac.com/systems/apple/macbook-air/specs/macbook-air-core-i7-1.7-13-early-2014-specs.html)
+* [2014 MacBookAir6,2](http://www.everymac.com/systems/apple/macbook-air/specs/macbook-air-core-i7-1.7-13-early-2014-specs.html)
+	* 13.3" Screen
+	* 1.7 GHz Intel Core i7
+	* Intel HD Graphics 5000
+	* (2) USB 3.0, (1) Thunderbolt, (1) SD Card, Headphone Out
 * Sony HDR-FX7 HDV camera
 	* 15' Firewire cable to record to disk rather than MiniDV tapes
 * [Sony FDR-AX100 4K camera](http://www.sony.com/electronics/handycam-camcorders/fdr-ax100)
