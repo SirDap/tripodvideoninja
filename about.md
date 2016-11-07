@@ -11,7 +11,7 @@ permalink: /about/
 	* 15.4" Matte Screen
 	* 2.16 GHz Intel Core 2 Duo
 	* ATI Radeon X1600 128 MB
-	* Sold on 9/2015. Firewire ports starting acting buggy when recording (overheating issue), SSD compatibility was also limited.
+	* Sold on 9/2015. Firewire ports starting acting buggy when recording (overheating issue), SSD compatibility was also limited
 * [2012 MacBook Pro 9,1](http://www.everymac.com/systems/apple/macbook_pro/specs/macbook-pro-core-i7-2.6-15-mid-2012-unibody-usb3-specs.html)
 	* 15.4" Matte Screen
 	* 2.6 GHz Intel Core i7
