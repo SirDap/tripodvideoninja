@@ -28,10 +28,10 @@ The following experiment was conducted using the following:
 
 1. Import video (as a linked file) into FCP X.
 	![Sony XAVC-S MOV file imported into FCP X]({% asset_path fcp-xmp-initial-import.png %})
-	
+
 2. Use [ExifTool](http://www.sno.phy.queensu.ca/~phil/exiftool/) and save linked file metadata. Note the System File Date/Time values at the top.
 
-		$ exiftool -api largefilesupport=1 -G1 XAVCS-sample.mov 
+		$ exiftool -api largefilesupport=1 -G1 XAVCS-sample.mov
 		[ExifTool]      ExifTool Version Number         : 10.08
 		[System]        File Name                       : XAVCS-sample.mov
 		[System]        Directory                       : /Volumes/Scratch/est
@@ -109,7 +109,7 @@ The following experiment was conducted using the following:
 	![Sony XAVC-S MOV file imported into Premiere Pro]({% asset_path fcp-xmp-premiere-import.png %})
 5. Run [ExifTool](http://www.sno.phy.queensu.ca/~phil/exiftool/) again to confirm the file has been modified. Note how the System File Date/Time values are updated and the new XMP info at the bottom!
 
-		$ exiftool -api largefilesupport=1 -G1 XAVCS-sample.mov 
+		$ exiftool -api largefilesupport=1 -G1 XAVCS-sample.mov
 		[ExifTool]      ExifTool Version Number         : 10.08
 		[System]        File Name                       : XAVCS-sample.mov
 		[System]        Directory                       : /Volumes/Scratch/est
@@ -198,14 +198,14 @@ The following experiment was conducted using the following:
 		[Composite]     Image Size                      : 1280x720
 		[Composite]     Megapixels                      : 0.922
 		[Composite]     Rotation                        : 0
-		$ 
-		
+		$
+
 6. Switch back to FCP X. No red media missing icon! Perhaps FCP X is working off the audio and video track lengths themselves, which did not change (as the ExifTool printouts showed).
 	![Modified file still linked and scrubs in FCP X]({% asset_path fcp-xmp-great-success.png %})
 
 ### A Whole New World
 
-While it'd be nice to know which version of FCP X finally became benign to embedded XMP metadata changes, the fact it now is unaffected by it opens a fresh range of possibilities for organizing footage and roundtripping between applications! 
+While it'd be nice to know which version of FCP X finally became benign to embedded XMP metadata changes, the fact it now is unaffected by it opens a fresh range of possibilities for organizing footage and roundtripping between applications!
 
 Some people wait a lifetime for a moment like this.
 
@@ -220,6 +220,6 @@ Hit the road, Jack!
 [^3]: [2012-04-19 https://forums.creativecow.net/thread/344/19594](https://forums.creativecow.net/thread/344/19594)
 [^4]: [2013-06-21 How to Transfer a Project from Final Cut Pro to After Effects](http://wolfcrow.com/blog/how-to-transfer-a-project-from-final-cut-pro-to-after-effects/)
 [^5]: [2014-06-25 FCP X: Relinking Media [u] (see comment by SadMac)](https://larryjordan.com/articles/fcpx-relinking/#comment-24001){:target="_blank"}
-[^6]: <https://en.wikipedia.org/wiki/OS_X_El_Capitan#Releases>
-[^7]: <https://en.wikipedia.org/wiki/Final_Cut_Pro_X#Evolution>
-[^8]: <https://en.wikipedia.org/wiki/Adobe_Premiere_Pro#Release_history>
+[^6]: <https://en.wikipedia.org/wiki/OS_X_El_Capitan#Releases>{:target="_blank"}
+[^7]: <https://en.wikipedia.org/wiki/Final_Cut_Pro_X#Evolution>{:target="_blank"}
+[^8]: <https://en.wikipedia.org/wiki/Adobe_Premiere_Pro#Release_history>{:target="_blank"}
