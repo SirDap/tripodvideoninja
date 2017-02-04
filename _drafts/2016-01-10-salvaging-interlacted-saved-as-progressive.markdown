@@ -1,12 +1,15 @@
 ---
 layout: post
-title:  "Repairing Interlaced Footage Saved as Progressive"
+title:  "Salvaging Interlaced Footage Saved as Progressive"
 subtitle: Waking up From an HDV-H.264 Nightmare
 date:   2016-01-10 18:15:56 -0500
-categories: 
+categories:
 ---
 * TOC
 {:toc}
+
+
+### The Rub
 
 We'll start with a quote from Larry Jordan:
 
@@ -14,18 +17,23 @@ We'll start with a quote from Larry Jordan:
 
 Oops.
 
-### The Rub
-i made the mistake once (alright, two times) of recording HDV 1080i interlaced footage as progressive H.264. In an attempt to save on disk space and not use those awful MiniDV tapes, i had the brilliant idea of automatically saving to disk. ScopeBox always came to the rescue.
+### The Flawed Setup
 
-The only hiccup this time was: the same camera was to be used for livestreaming. It wasn't possible to share the video source with both Wirecast and ScopeBox, so i thought, "Hey, why not try recording straight to disk in Wirecast instead?"
+I still use a Sony FX7 for some setups. It has a Firewire out which makes it perfect for live streaming.
 
-Since HDV is technically a 4:3 1440x1080 image that's then stretched out, i wasn't sure whether i should record to 1920x1080 or 1440x1080. So instead, i said, let's just do H.264!
+For this event, I wanted to (1) use the FX7 for live streaming and (2) also record the raw HDV video itself for archival.
 
-One major downside regardless, which i now realize, is Wirecast won't save timecode.
+In order to avoid those awful MiniDV tapes—whose tape changes I feared also might cause the Firewire feed to hiccup—archival meant recording to disk. It wasn't possible to share the video source with both Wirecast and ScopeBox, so I thought, "Hey, why not try recording straight to disk in Wirecast instead?"
 
-Rather than "upscale" to 1920x1080, i thought going 720p would be better—less loss of quality.
+Wirecast's save to disk options weren't as user-friendly as ScopeBox. It didn't know how to "automatically" record as HDV, instead it required one to manually setup the codec format, frame rate, etc. which felt too easy for me to mess up. For example since HDV is technically a 4:3 1440x1080 image that's then stretched out, I wasn't sure whether I should record to 1920x1080 or 1440x1080.
 
-Thus the Nightmare Before the 2013 All-Night Concert began.
+So rather than deal with all that I said instead, "Let's just do H.264!" Avoiding the "upscale" to 1920x1080, I thought going 720p would be better—less loss of quality.
+
+Thus the Nightmare Before Recording began.
+
+One major downside regardless, which I now realize, is **Wirecast won't save timecode**. Which makes sense, because it often drops frames to maintain the live content stream.
+
+
 
 
 Notes:
@@ -33,13 +41,11 @@ Notes:
 2014: 11-5 @ 9:48 when flash is there, can see combs ...
 
 
-### Appendix
-
-#### Encoding Presets
+### Encoding Presets
 
 Details of all the presets used. All audio settings left as default.
 
-##### x264 Larry Jordan-esque (Compressor)
+#### x264 Larry Jordan-esque (Compressor)
 
 Inspired by: <https://larryjordan.com/articles/compressor-x264-improve-video/>
 
@@ -61,7 +67,7 @@ Inspired by: <https://larryjordan.com/articles/compressor-x264-improve-video/>
 ![]({% asset_path jordanx264-06.png %})
 ![]({% asset_path jordanx264-07.png %})
 
-##### x264 Jan Ozer-esque (Compressor)
+#### x264 Jan Ozer-esque (Compressor)
 
 Inspired by: <http://www.streaminglearningcenter.com/articles/first-look-apple-compressor-41.html> and <http://www.streaminglearningcenter.com/articles/encoding-with-the-x264-codec-with-compressor-4.html>
 
@@ -89,7 +95,7 @@ Inspired by: <http://www.streaminglearningcenter.com/articles/first-look-apple-c
 ![]({% asset_path ozerx264-07.png %})
 ![]({% asset_path ozerx264-08.png %})
 
-##### x264 Deinterlace (HandBrake)
+#### x264 Deinterlace (HandBrake)
 
 * Started with High Profile
 * Picture Settings > Filters
@@ -99,7 +105,7 @@ Inspired by: <http://www.streaminglearningcenter.com/articles/first-look-apple-c
 ![]({% asset_path hbx264-02.png %})
 ![]({% asset_path hbx264-03.png %})
 
-##### x264 Decomb (HandBrake)
+#### x264 Decomb (HandBrake)
 
 * Started with High Profile
 * Picture Settings > Filters
@@ -109,7 +115,7 @@ Inspired by: <http://www.streaminglearningcenter.com/articles/first-look-apple-c
 ![]({% asset_path hbx264-05.png %})
 ![]({% asset_path hbx264-06.png %})
 
-##### x264 Deinterlace, Top Field First (HandBrake)
+#### x264 Deinterlace, Top Field First (HandBrake)
 
 * Started with High Profile
 * Picture Settings > Filters
@@ -118,7 +124,7 @@ Inspired by: <http://www.streaminglearningcenter.com/articles/first-look-apple-c
 
 ![]({% asset_path hbx264-07.png %})
 
-##### x264 Decomb, Top Field First (HandBrake)
+#### x264 Decomb, Top Field First (HandBrake)
 
 * Started with High Profile
 * Picture Settings > Filters
@@ -127,14 +133,14 @@ Inspired by: <http://www.streaminglearningcenter.com/articles/first-look-apple-c
 
 ![]({% asset_path hbx264-08.png %})
 
-##### Apple ProRes 422 (Compressor)
+#### Apple ProRes 422 (Compressor)
 
 * Started with stock preset
 * Retiming quality set to Better (Motion Adaptive)
 
 ![]({% asset_path prores-01.png %})
 
-##### Up to 4K (Compressor)
+#### Up to 4K (Compressor)
 * Duplicate stock Up to 4K preset (can be found under either Publish to Vimeo or Publish to YouTube)
 * Rename as H.264 for Archival
 * Change Data rate from Web publishing (19531 kbps) to Computer playback (29296 kbps). Note rates are for actual 4K and are smaller for 720p footage.
@@ -147,10 +153,10 @@ Inspired by: <http://www.streaminglearningcenter.com/articles/first-look-apple-c
 ![]({% asset_path upto4k-04.png %})
 
 ### References
-[^] Tip to use `:tff` in Handbrake <http://stackoverflow.com/questions/9287122/how-do-i-set-the-interlaced-flag-on-an-mkv-file-so-that-vlc-can-automatically-pl
->
-[^2] <https://larryjordan.com/articles/it-aint-the-endian-of-the-world/>
-[^3] Frame rate loss around 85-90% CPU <http://forum.telestream.net/forum/messageview.aspx?catid=45&threadid=19731&highlight_key=y&keyword1=record+to+disk>
-[^4] This one says 80% CPU <http://forum.telestream.net/forum/messageview.aspx?catid=45&threadid=17012&highlight_key=y&keyword1=record+to+disk>
-[^5] Another 80% CPU, also external HD very little impact on disk <http://forum.telestream.net/forum/messageview.aspx?catid=45&threadid=16048&highlight_key=y&keyword1=record+to+disk>
-[^6] Recorded Interlaced Source as Progressive file - now what? <http://forum.telestream.net/forum/messageview.aspx?catid=45&threadid=23213&highlight_key=y&keyword1=deinterlace>
+
+[^1]: Tip to use `:tff` in Handbrake <http://stackoverflow.com/questions/9287122/how-do-i-set-the-interlaced-flag-on-an-mkv-file-so-that-vlc-can-automatically-pl>{:target="_blank"}
+[^2]: <https://larryjordan.com/articles/it-aint-the-endian-of-the-world/>{:target="_blank"}
+[^3]: Frame rate loss around 85-90% CPU <http://forum.telestream.net/forum/messageview.aspx?catid=45&threadid=19731&highlight_key=y&keyword1=record+to+disk>{:target="_blank"}
+[^4]: This one says 80% CPU <http://forum.telestream.net/forum/messageview.aspx?catid=45&threadid=17012&highlight_key=y&keyword1=record+to+disk>{:target="_blank"}
+[^5]: Another 80% CPU, also external HD very little impact on disk <http://forum.telestream.net/forum/messageview.aspx?catid=45&threadid=16048&highlight_key=y&keyword1=record+to+disk>{:target="_blank"}
+[^6]: Recorded Interlaced Source as Progressive file - now what? <http://forum.telestream.net/forum/messageview.aspx?catid=45&threadid=23213&highlight_key=y&keyword1=deinterlace>{:target="_blank"}
