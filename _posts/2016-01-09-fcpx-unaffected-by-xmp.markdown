@@ -8,6 +8,8 @@ categories: codecs metadata
 * TOC
 {:toc}
 
+## Introduction
+
 There is quite a bit of literature[^1] [^2] [^3] [^4] [^5] on the net how Adobe applications can embed XMP metadata and modify original footage—wreaking havoc for other NLEs like FCP. Posts range as far back as 2011, the year FCP X was released, to even one in mid 2014.
 
 The takeaway of all them, rightly so, was to uncheck the nasty _Write XMP ID to Files in Import_ setting in Adobe Premiere, After Effects, etc. so the original files remain untouched. Then, other NLEs like FCP X won't be affected and continue their merry way.

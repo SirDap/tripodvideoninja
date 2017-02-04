@@ -7,6 +7,8 @@ categories: codecs metadata
 * TOC
 {:toc}
 
+## Introduction
+
 Many new Sony video cameras (like the [FDR-AX100](http://www.sony.com/electronics/handycam-camcorders/fdr-ax100) and [HDR-CX900](http://www.sony.com/electronics/handycam-camcorders/hdr-cx900)) record into the new XAVC-S format. XAVC-S writes to mp4 container files, and along side them sit nice little XML files with metadata.
 
 The following is what i've unearthed from poking around the SD card. This post may not be particuarly useful per se, but it's more a log of some observations.
