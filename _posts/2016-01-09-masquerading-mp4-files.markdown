@@ -17,7 +17,7 @@ What was particularly perplexing to me was after the software update, QuickTime 
 ![MPEG Streamclip further complains on Open Anyway]({% asset_path xavcs-failure-streamclip-open-anyway %})
 ![Sony XAVC-S MP4 file unrecognized by Compressor 4]({% asset_path xavcs-failure-compressor4-open %})
 
-"Invalid sample description" ... "can't find video or audio tracks" ... very interesting. Almost suggests the programs can't read some header metadata. Thanks to the folks folks at Divergent Media, now i know XAVC-S is just H.264 video inside the container.[^2] Should be no reason QT7 can't open it.
+"Invalid sample description" ... "can't find video or audio tracks" ... very interesting. Almost suggests the programs can't read some header metadata. Thanks to the folks folks at Divergent Media, now I know XAVC-S is just H.264 video inside the container.[^2] Should be no reason QT7 can't open it.
 
 Indeed that's the case!
 
@@ -37,7 +37,7 @@ This means Final Cut Pro 7 will open such files now too!
 
 Um, ya.
 
-My guess is, in the old days any file that ended in MP4 was thought to conform the MP4 standard. Makes sense, right? That implies the audio stream for MP4 files should be AAC, MP3 or a few other audio codecs.[^3] In that bucket list is _not_ PCM audio! This strict convention is what i surmise QT7 and Compressor 4.2 adhere to and therefore could not open the XAVC-S file from the video camera.
+My guess is, in the old days any file that ended in MP4 was thought to conform the MP4 standard. Makes sense, right? That implies the audio stream for MP4 files should be AAC, MP3 or a few other audio codecs.[^3] In that bucket list is _not_ PCM audio! This strict convention is what I surmise QT7 and Compressor 4.2 adhere to and therefore could not open the XAVC-S file from the video camera.
 
 The renaming hint came from a StackExchange[^4] and FFMPEG page[^5] after searching for the QT7 error message `An invalid sample description was found in the movie`.
 
@@ -47,7 +47,7 @@ In the OP's case, a masquerading MP4 file contained both AAC and AC3 audio track
 
 Like the standard quicktime `mov` container, `m4v` seems to have more for flexibility for packaging MP4 streams—in this case, for PCM audio. After all, like `mov`, the `m4v` container is developed by Apple.[^6]
 
-For a long time, i placed the emphasis on the **v** of m4**v**—that it's MP4 **v**ideo. But in a way, perhaps the emphasis is really on the **4**: it's like m**o**v but just with the middle letter changed for mp**4** files.
+For a long time, I placed the emphasis on the **v** of m4**v**—that it's MP4 **v**ideo. But in a way, perhaps the emphasis is really on the **4**: it's like m**o**v but just with the middle letter changed for mp**4** files.
 
 ### Appendix
 
@@ -64,7 +64,7 @@ Stream information from the original 4K MP4 file from the Sony AX-100 using `ffp
 
 
 ~~~
-Krish-MBP-2012-en1:Desktop Krish$ ffprobe -show_streams XAVCS-4K-29.97fps.MP4 
+Krish-MBP-2012-en1:Desktop Krish$ ffprobe -show_streams XAVCS-4K-29.97fps.MP4
 ffprobe version 2.8 Copyright (c) 2007-2015 the FFmpeg developers
   built with Apple LLVM version 6.1.0 (clang-602.0.53) (based on LLVM 3.6.0svn)
   configuration: --prefix=/usr/local/Cellar/ffmpeg/2.8 --enable-shared --enable-pthreads --enable-gpl --enable-version3 --enable-hardcoded-tables --enable-avresample --cc=clang --host-cflags= --host-ldflags= --enable-opencl --enable-libx264 --enable-libmp3lame --enable-libvo-aacenc --enable-libxvid --enable-vda

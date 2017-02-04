@@ -8,7 +8,6 @@ categories:
 * TOC
 {:toc}
 
-
 ### The Rub
 
 We'll start with a quote from Larry Jordan:
@@ -19,29 +18,77 @@ Oops.
 
 ### The Flawed Setup
 
-I still use a Sony FX7 for some setups. It has a Firewire out which makes it perfect for live streaming.
+I still use a Sony FX7 for some setups. It has a Firewire out which makes it perfect for livestreaming.
 
-For this event, I wanted to (1) use the FX7 for live streaming and (2) also record the raw HDV video itself for archival.
+For this event, I wanted to (1) use the FX7 for livestreaming and (2) also record the raw HDV video itself for editing afterwards.
 
-In order to avoid those awful MiniDV tapes—whose tape changes I feared also might cause the Firewire feed to hiccup—archival meant recording to disk. It wasn't possible to share the video source with both Wirecast and ScopeBox, so I thought, "Hey, why not try recording straight to disk in Wirecast instead?"
+In order to avoid those awful MiniDV tapes—whose tape changes I feared also might cause the live feed to that meant recording to disk. It wasn't possible to share the video source with both Wirecast and ScopeBox, so I thought, "Hey, why not try recording straight to disk in Wirecast instead?"
 
-Wirecast's save to disk options weren't as user-friendly as ScopeBox. It didn't know how to "automatically" record as HDV, instead it required one to manually setup the codec format, frame rate, etc. which felt too easy for me to mess up. For example since HDV is technically a 4:3 1440x1080 image that's then stretched out, I wasn't sure whether I should record to 1920x1080 or 1440x1080.
+While [this post]({% post_url 2016-01-24-live-streaming-lessons %}){:target="_blank"} details many other general livestreaming lessons learned, there are a few major downsides to relying on Wirecast for raw footage which I now realize. Wirecast doesn't know how to "automatically" record as HDV; instead it manually requires setting the codec format, frame rate, etc. which felt too easy for me to mess up. For example: since HDV is technically a 4:3 1440x1080 image that's then stretched out, I wasn't sure whether I should record to 1920x1080 or 1440x1080.
 
-So rather than deal with all that I said instead, "Let's just do H.264!" Avoiding the "upscale" to 1920x1080, I thought going 720p would be better—less loss of quality.
+So rather than deal with all that I said instead, "Let's just save H.264 in Wirecast to disk!" (It was a pretty neat setup actually, using two Wirecast documents open simultaneously, one for the livestream and one just for the camera's archive stream.) Just in case 1080p would create an upscale, I thought going 720p would be better.
 
 Thus the Nightmare Before Recording began.
 
-One major downside regardless, which I now realize, is **Wirecast won't save timecode**. Which makes sense, because it often drops frames to maintain the live content stream.
+### The Rescue Contenders
+
+Three approaches to "uncomb" the baked in interlaced footage were tried:
+* [Handbrake](https://handbrake.fr){:target="_blank"} (v 0.10.5 x86_64)
+* [Compressor 4](http://www.apple.com/final-cut-pro/compressor/){:target="_blank"} via forcing the field order to interlaced
+* [PHYX Cleaner plugin](http://www.phyx.biz/phyxcleaner.html){:target="_blank"} as suggested on a Wirecast forum[^2]
+
+Of these three, **Compressor was the clear winner**.
+
+### The Compressor Trick
+
+Compressor, it seems, has a handy feature that allows "forcing" an input file's field order. By carefully clicking on the input file's box, the Inspector window on the right shows a little section called **File Properties**.
+
+![]({% asset_path compressor-force-field-order.png %})
+
+Since the file is actually H.264, Compressor reads the metadata and has Progressive selected by default. Changing this to **Top First** forces it to treat it as interlaced (HDV is top field first).
+
+### Deinterlace Tests
+
+#### 1080iHDVSavedAs720pH264Clip1.mov
+
+| Output file                                                              | Program used | Result |
+|:-------------------------------------------------------------------------|:-------------|:-------|
+| 1080iHDVSavedAs720pH264-PhyxCleanerMasterFileH264.mov                    | PHYX + FCPX  | OK     |
+| 1080iHDVSavedAs720pH264-PhyxCleanerMasterFileProRes.mov                  | PHYX + FCPX  | OK     |
+| 1080iHDVSavedAs720pH264Clip1-Apple Devices HD (Best Quality).m4v         | Compressor   | BEST   |
+| 1080iHDVSavedAs720pH264Clip1-Apple ProRes 422 Retiming Better.mov        | Compressor   | FAIL   |
+| 1080iHDVSavedAs720pH264Clip1-Apple ProRes 422 Stock.mov                  | Compressor   | FAIL   |
+| 1080iHDVSavedAs720pH264Clip1-H.264 for Archival.mov                      | Compressor   | BEST   |
+| 1080iHDVSavedAs720pH264Clip1-HandbrakeHighProfileDecombBob.mp4           | Handbrake    | FAIL   |
+| 1080iHDVSavedAs720pH264Clip1-HandbrakeHighProfileDecombBob60fps.mp4      | Handbrake    | FAIL   |
+| 1080iHDVSavedAs720pH264Clip1-HandbrakeHighProfileDecombBobTff.mp4        | Handbrake    | FAIL   |
+| 1080iHDVSavedAs720pH264Clip1-HandbrakeHighProfileDeinterflaceBobTff.mp4  | Handbrake    | FAIL   |
+| 1080iHDVSavedAs720pH264Clip1-HandbrakeHighProfileDeinterlaceBob.mp4      | Handbrake    | FAIL   |
+| 1080iHDVSavedAs720pH264Clip1-HandbrakeHighProfileDeinterlaceBob60fps.mp4 | Handbrake    | FAIL   |
+| 1080iHDVSavedAs720pH264Clip1-Up to 4K.mov                                | Compressor   | OK     |
+| 1080iHDVSavedAs720pH264Clip1-x264 Jan Ozer-esque.mov                     | Compressor   | FAIL   |
+| 1080iHDVSavedAs720pH264Clip1-x264 Larry Jordan-esque.mov                 | Compressor   | FAIL   |
+
+<br />
+
+From these experiments, it seems **Handbrake's decombing/deinterlacing algorithms can't be forced on progressive video files**. Even forcing the footage with `tff` as top-field-first[^1] yielded zero discernible difference. Handbrake's just meant to work on actual interlaced footage.
+
+PHYX Cleaner's output was better than the original, but it's still rather comby. Both H.264 and ProRes master files appear identical in deinterlacing quality. Perhaps the plugin can be refined further from the stock plugin settings, but even if that were the case there are so many disadvantages:
+
+1. it's a paid plugin
+2. each clip would require a separate Project in FCPX
+3. exporting from FCPX can't be batched easily (like Compressor)
+
+Compressor however is the clear champion! In particular, the only passing Compressor renders were by **forcing the field order *and* using Apple's stock H.264 codec**. Forcing the field order and using an x264 codec[^3] made no difference—and rather looked like the poor output from Handbrake (likely because Handbrake uses x264 too).
+
+#### 1080iHDVSavedAs720pH264Clip2.mov
+
+| Output file                                                              | Program used | Result |
+|:-------------------------------------------------------------------------|:-------------|:-------|
 
 
 
-
-Notes:
-
-2014: 11-5 @ 9:48 when flash is there, can see combs ...
-
-
-### Encoding Presets
+### Appendix: Encoding Presets
 
 Details of all the presets used. All audio settings left as default.
 
@@ -145,18 +192,20 @@ Inspired by: <http://www.streaminglearningcenter.com/articles/first-look-apple-c
 * Rename as H.264 for Archival
 * Change Data rate from Web publishing (19531 kbps) to Computer playback (29296 kbps). Note rates are for actual 4K and are smaller for 720p footage.
 * Change retiming quality to Better (Motion Adaptive)
-* Change audio from AAC to Linear PCM 48kHz, Best Quality, 16-bit Little Endian (the Intel Default)[^2]
+* Change audio from AAC to Linear PCM 48kHz, Best Quality, 16-bit Little Endian (the Intel Default)[^4]
 
 ![]({% asset_path upto4k-01.png %})
 ![]({% asset_path upto4k-02.png %})
 ![]({% asset_path upto4k-03.png %})
 ![]({% asset_path upto4k-04.png %})
 
+#### PHYX Cleaner
+
+![]({% asset_path phyx-cleaner-deinterlace-settings.png %})
+
 ### References
 
 [^1]: Tip to use `:tff` in Handbrake <http://stackoverflow.com/questions/9287122/how-do-i-set-the-interlaced-flag-on-an-mkv-file-so-that-vlc-can-automatically-pl>{:target="_blank"}
-[^2]: <https://larryjordan.com/articles/it-aint-the-endian-of-the-world/>{:target="_blank"}
-[^3]: Frame rate loss around 85-90% CPU <http://forum.telestream.net/forum/messageview.aspx?catid=45&threadid=19731&highlight_key=y&keyword1=record+to+disk>{:target="_blank"}
-[^4]: This one says 80% CPU <http://forum.telestream.net/forum/messageview.aspx?catid=45&threadid=17012&highlight_key=y&keyword1=record+to+disk>{:target="_blank"}
-[^5]: Another 80% CPU, also external HD very little impact on disk <http://forum.telestream.net/forum/messageview.aspx?catid=45&threadid=16048&highlight_key=y&keyword1=record+to+disk>{:target="_blank"}
-[^6]: Recorded Interlaced Source as Progressive file - now what? <http://forum.telestream.net/forum/messageview.aspx?catid=45&threadid=23213&highlight_key=y&keyword1=deinterlace>{:target="_blank"}
+[^2]: Recorded Interlaced Source as Progressive file - now what? <http://forum.telestream.net/forum/messageview.aspx?catid=45&threadid=23213>{:target="_blank"}
+[^3]: <https://larryjordan.com/articles/compressor-x264-improve-video/>
+[^4]: <https://larryjordan.com/articles/it-aint-the-endian-of-the-world/>{:target="_blank"}

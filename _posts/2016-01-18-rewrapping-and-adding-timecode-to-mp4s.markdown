@@ -28,7 +28,7 @@ Technically, the following tests were performed using AVCHD files already in MOV
 
 #### ffmpeg Woes
 
-ffmpeg is the open source king for video compression. Many programs like Handbrake are built on it, so i was excited to learn it can add timecode as well! To rewrap a container with timecode the syntax is like so:
+ffmpeg is the open source king for video compression. Many programs like Handbrake are built on it, so I was excited to learn it can add timecode as well! To rewrap a container with timecode the syntax is like so:
 
 `ffmpeg -i Day_1.mov -codec copy -timecode 04:25:50.00 Day_1.ffmpeg.mov`
 
@@ -90,7 +90,7 @@ However, while the original was `159164` frames, the rewrapped one is `159111`.
 ![]({% asset_path rewrap-original-frame-count.png %})
 ![]({% asset_path cineplay-rewrap-missing-frames.png %})
 
-The first setback is CinePlay changes the File Creation Date of the file (i.e. the one that's read from `GetFileInfo` from the Terminal) so the date in FCP X is changed from the original to the date of the rewrapping. Also note, though how the timecode duration *appears* longer in FCP X ... This i take is because the timecode track is NDF but the FR is 29.97, and/or some metadata is incorrect in CinePlay's rewrap. (In Compressor, the last frame's timecode is `01:28:23:21`.)
+The first setback is CinePlay changes the File Creation Date of the file (i.e. the one that's read from `GetFileInfo` from the Terminal) so the date in FCP X is changed from the original to the date of the rewrapping. Also note, though how the timecode duration *appears* longer in FCP X ... This I take is because the timecode track is NDF but the FR is 29.97, and/or some metadata is incorrect in CinePlay's rewrap. (In Compressor, the last frame's timecode is `01:28:23:21`.)
 
 ![]({% asset_path rewrap-editready-file-dates.png %})
 
@@ -102,11 +102,11 @@ Another hiccup was ... the Compressor render never completed!
 
 ![]({% asset_path cineplay-compressor-hang-bad-file.png %})
 
-Turns out the original movie file i inherited was somehow corrupt. (Photos probably isn't the best tool to import AVCHD footage.) Not CinePlay's fault at all but it does knock it out of first place!
+Turns out the original movie file I inherited was somehow corrupt. (Photos probably isn't the best tool to import AVCHD footage.) Not CinePlay's fault at all but it does knock it out of first place!
 
 #### EditReady Lives up to Its Name
 
-[EditReady](http://www.divergentmedia.com/editready) is a champion at rewrapping footage. Divergent Media makes excellent products and their customer service is bar none. When i had written regarding the ghost render, Colin at Divergent Media explained:
+[EditReady](http://www.divergentmedia.com/editready) is a champion at rewrapping footage. Divergent Media makes excellent products and their customer service is bar none. When I had written regarding the ghost render, Colin at Divergent Media explained:
 
 > Compressor isn't good at recovering from bad frames, so that's the mostly likely problem. You hit one bad segment and it just gives up. EditReady is a little better about moving past those segments. It could have been a bad SD card or something during the original shoot.
 
@@ -133,7 +133,7 @@ The size of the rewrapped, timecode footage is the same within a few bytes. Stra
 ![]({% asset_path timecode-test-original-stats.png %})
 ![]({% asset_path editready-rewrap-stats.png %})
 
-The rewrapped video however was larger in the number of frames: without timecode generation, it was `159165` frames instead of `159164` and with timecode it was `159166`. Thinking this might have been the potential missing frame correction, i checked against another clip that rendered properly in Compressor, but the EditReady rewrap (without timecode) was again greater in frames: `174150` vs `174149`.
+The rewrapped video however was larger in the number of frames: without timecode generation, it was `159165` frames instead of `159164` and with timecode it was `159166`. Thinking this might have been the potential missing frame correction, I checked against another clip that rendered properly in Compressor, but the EditReady rewrap (without timecode) was again greater in frames: `174150` vs `174149`.
 
 ![]({% asset_path rewrap-original-frame-count.png %})
 ![]({% asset_path editready-rewrap-one-extra-frame.png %})
