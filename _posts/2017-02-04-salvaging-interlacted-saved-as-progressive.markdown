@@ -2,7 +2,7 @@
 layout: post
 title:  "Salvaging Interlaced Footage Saved as Progressive"
 subtitle: Waking up From an HDV-H.264 Nightmare
-date:   2016-01-10 18:15:56 -0500
+date:   2017-02-04 17:49:56 -0500
 categories:
 ---
 * TOC
@@ -45,33 +45,41 @@ Compressor, it seems, has a handy feature that allows "forcing" an input file's 
 
 ![]({% asset_path compressor-force-field-order.png %})
 
-Since the file is actually H.264, Compressor reads the metadata and has Progressive selected by default. Changing this to **Top First** forces it to treat it as interlaced (HDV is top field first).
+Since the file is actually H.264, Compressor reads the metadata and selects Progressive by default. Changing this to **Top First** forces it to treat it as interlaced (since HDV is top field first).
 
 ### Deinterlace Tests
 
-#### 1080iHDVSavedAs720pH264Clip1.mov
+All files, a total of 2.68 GB, are available [here]({% b2 HDV-Deinterlace-Repair-Experiments.zip %}) for reference. Compressing them for web would precisely alter what we're trying to observe!
 
-| Output file                                                              | Program used | Result |
-|:-------------------------------------------------------------------------|:-------------|:-------|
-| 1080iHDVSavedAs720pH264-PhyxCleanerMasterFileH264.mov                    | PHYX + FCPX  | OK     |
-| 1080iHDVSavedAs720pH264-PhyxCleanerMasterFileProRes.mov                  | PHYX + FCPX  | OK     |
-| 1080iHDVSavedAs720pH264Clip1-Apple Devices HD (Best Quality).m4v         | Compressor   | BEST   |
-| 1080iHDVSavedAs720pH264Clip1-Apple ProRes 422 Retiming Better.mov        | Compressor   | FAIL   |
-| 1080iHDVSavedAs720pH264Clip1-Apple ProRes 422 Stock.mov                  | Compressor   | FAIL   |
-| 1080iHDVSavedAs720pH264Clip1-H.264 for Archival.mov                      | Compressor   | BEST   |
-| 1080iHDVSavedAs720pH264Clip1-HandbrakeHighProfileDecombBob.mp4           | Handbrake    | FAIL   |
-| 1080iHDVSavedAs720pH264Clip1-HandbrakeHighProfileDecombBob60fps.mp4      | Handbrake    | FAIL   |
-| 1080iHDVSavedAs720pH264Clip1-HandbrakeHighProfileDecombBobTff.mp4        | Handbrake    | FAIL   |
-| 1080iHDVSavedAs720pH264Clip1-HandbrakeHighProfileDeinterflaceBobTff.mp4  | Handbrake    | FAIL   |
-| 1080iHDVSavedAs720pH264Clip1-HandbrakeHighProfileDeinterlaceBob.mp4      | Handbrake    | FAIL   |
-| 1080iHDVSavedAs720pH264Clip1-HandbrakeHighProfileDeinterlaceBob60fps.mp4 | Handbrake    | FAIL   |
-| 1080iHDVSavedAs720pH264Clip1-Up to 4K.mov                                | Compressor   | OK     |
-| 1080iHDVSavedAs720pH264Clip1-x264 Jan Ozer-esque.mov                     | Compressor   | FAIL   |
-| 1080iHDVSavedAs720pH264Clip1-x264 Larry Jordan-esque.mov                 | Compressor   | FAIL   |
+Note: please be considerate and only download them sparingly as needed.
+
+**1080iHDVSavedAs720pH264Clip1.mov**
+
+57 second clip, 30 MB.
+
+| Output file                                 | Size | Program used      | Result |
+|:--------------------------------------------|:-----|:------------------|:-------|
+| Apple Devices HD (Best Quality).m4v         | 49M  | Compressor        | BEST   |
+| Apple ProRes 422 Retiming Better.mov        | 498M | Compressor        | FAIL   |
+| Apple ProRes 422 Stock.mov                  | 498M | Compressor        | FAIL   |
+| H.264 for Archival.mov                      | 94M  | Compressor        | BEST   |
+| HandbrakeHighProfileDecombBob.mp4           | 30M  | Handbrake         | FAIL   |
+| HandbrakeHighProfileDecombBob60fps.mp4      | 30M  | Handbrake         | FAIL   |
+| HandbrakeHighProfileDecombBobTff.mp4        | 31M  | Handbrake         | FAIL   |
+| HandbrakeHighProfileDeinterflaceBobTff.mp4  | 37M  | Handbrake         | FAIL   |
+| HandbrakeHighProfileDeinterlaceBob.mp4      | 36M  | Handbrake         | FAIL   |
+| HandbrakeHighProfileDeinterlaceBob60fps.mp4 | 36M  | Handbrake         | FAIL   |
+| PhyxCleanerMasterFileH264.mov               | 49M  | PHYX + FCPX       | OK     |
+| PhyxCleanerMasterFileProRes.mov             | 499M | PHYX + FCPX       | OK     |
+| Up to 4K Stock.mov                          | 69M  | Compressor        | OK     |
+| x264 Jan Ozer-esque.mov                     | 48M  | Compressor + x264 | FAIL   |
+| x264 Larry Jordan-esque.mov                 | 47M  | Compressor + x264 | FAIL   |
 
 <br />
 
 From these experiments, it seems **Handbrake's decombing/deinterlacing algorithms can't be forced on progressive video files**. Even forcing the footage with `tff` as top-field-first[^1] yielded zero discernible difference. Handbrake's just meant to work on actual interlaced footage.
+
+Also interesting to note is Handbrake seems to start video earlier from the GOP, even though the file itself started many frames later. Hence the audio is blank at the beginning of the output render file!
 
 PHYX Cleaner's output was better than the original, but it's still rather comby. Both H.264 and ProRes master files appear identical in deinterlacing quality. Perhaps the plugin can be refined further from the stock plugin settings, but even if that were the case there are so many disadvantages:
 
@@ -81,14 +89,42 @@ PHYX Cleaner's output was better than the original, but it's still rather comby.
 
 Compressor however is the clear champion! In particular, the only passing Compressor renders were by **forcing the field order *and* using Apple's stock H.264 codec**. Forcing the field order and using an x264 codec[^3] made no difference—and rather looked like the poor output from Handbrake (likely because Handbrake uses x264 too).
 
-#### 1080iHDVSavedAs720pH264Clip2.mov
+### Summary of Repair Solution
 
-| Output file                                                              | Program used | Result |
-|:-------------------------------------------------------------------------|:-------------|:-------|
+**1080iHDVSavedAs720pH264Clip2.mov**
 
+Final confirmation with a 11 sec, 9 MB segment instead.
 
+**Original** *especially note the combing during fast hand movements*
+<div class="videoWrapper">
+<video controls width="640" height="360" preload="metadata" poster="{% asset_path deinterlace-clip2-better-retiming-poster.png %}">
+  <source src="{% b2 1080iHDVSavedAs720pH264Clip2.mov %}" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+</div>
 
-### Appendix: Encoding Presets
+| Output file                  | Size | Program used | Result |
+|:-----------------------------|:-----|:-------------|:-------|
+| Up to 4K Stock.mov           | 14M  | Compressor   | BEST   |
+| Up to 4K Better Retiming.mov | 14M  | Compressor   | BEST   |
+
+<br />
+
+It's hard for me to tell if there's an appreciable difference between the two retiming settings, but for sure the combing is no more!
+
+**Repaired (Up to 4K Better Retiming)** *look Ma, no lines!*
+<div class="videoWrapper">
+<video controls width="640" height="360" preload="metadata" poster="{% asset_path deinterlace-clip2-orig-poster.png %}">
+  <source src="{% b2 1080iHDVSavedAs720pH264Clip2-Up-to-4K-Better-Retiming.mov %}" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+</div>
+
+So at the end of the day, **forcing Compressor's input field order *and* exporting using Apple's H.264 codec works like a champ**.
+
+Phew!
+
+### Appendix: Custom Encoding Presets Tried
 
 Details of all the presets used. All audio settings left as default.
 
@@ -187,11 +223,11 @@ Inspired by: <http://www.streaminglearningcenter.com/articles/first-look-apple-c
 
 ![]({% asset_path prores-01.png %})
 
-#### Up to 4K (Compressor)
+#### H.264 for Archival (Compressor)
 * Duplicate stock Up to 4K preset (can be found under either Publish to Vimeo or Publish to YouTube)
 * Rename as H.264 for Archival
-* Change Data rate from Web publishing (19531 kbps) to Computer playback (29296 kbps). Note rates are for actual 4K and are smaller for 720p footage.
-* Change retiming quality to Better (Motion Adaptive)
+* Change Data rate from Web publishing (19531 kbps) to Computer playback (29296 kbps). Note rates listed in Compressor are for actual 4K footage and will be smaller for 720p footage.
+* Change retiming quality from Fast to Better (Motion Adaptive)
 * Change audio from AAC to Linear PCM 48kHz, Best Quality, 16-bit Little Endian (the Intel Default)[^4]
 
 ![]({% asset_path upto4k-01.png %})

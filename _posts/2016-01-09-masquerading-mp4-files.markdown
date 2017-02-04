@@ -53,7 +53,7 @@ For a long time, I placed the emphasis on the **v** of m4**v**—that it's MP4 *
 
 ####  XAVC-S sample file
 
-For posterity! Original video file from the Sony AX-100 camera available [here]({% b2 XAVCS-4K-29.97fps.MP4.zip %}) for download and experimentation.
+For posterity! Original 50 MB video file from the Sony AX-100 camera available [here]({% b2 XAVCS-4K-29.97fps.MP4.zip %}) for download and experimentation.
 
 Audio credit: _Raga Pahadi - Alaap_ by Ashwin Batish from album [_Morning Meditation Ragas on Sitar_](https://player.spotify.com/album/0hAFpAvn7T1rAXD62ge5Ut){:target="_blank"}.
 

@@ -8,7 +8,7 @@
 # Site settings
 title: TripodVideoNinja | Krishna Bhamidipati
 email: krishna@tripodvideo.ninja
-description: > 
+description: >
   Freelance videographer specializing in recording and streaming of classical music concerts.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://tripodvideo.ninja" # the base hostname & protocol for your site
