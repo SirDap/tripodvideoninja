@@ -32,10 +32,10 @@ Thus the Nightmare Before Recording began.
 
 ### The Rescue Contenders
 
-Three approaches to "uncomb" the baked in interlaced footage were tried:
+Three approaches to "uncomb"[^2] the baked in interlaced footage were tried:
 * [Handbrake](https://handbrake.fr){:target="_blank"} (v 0.10.5 x86_64)
 * [Compressor 4](http://www.apple.com/final-cut-pro/compressor/){:target="_blank"} via forcing the field order to interlaced
-* [PHYX Cleaner plugin](http://www.phyx.biz/phyxcleaner.html){:target="_blank"} as suggested on a Wirecast forum[^2]
+* [PHYX Cleaner plugin](http://www.phyx.biz/phyxcleaner.html){:target="_blank"} as suggested on a Wirecast forum[^3]
 
 Of these three, **Compressor was the clear winner**.
 
@@ -87,7 +87,7 @@ PHYX Cleaner's output was better than the original, but it's still rather comby.
 2. each clip would require a separate Project in FCPX
 3. exporting from FCPX can't be batched easily (like Compressor)
 
-Compressor however is the clear champion! In particular, the only passing Compressor renders were by **forcing the field order *and* using Apple's stock H.264 codec**. Forcing the field order and using an x264 codec[^3] made no difference—and rather looked like the poor output from Handbrake (likely because Handbrake uses x264 too).
+Compressor however is the clear champion! In particular, the only passing Compressor renders were by **forcing the field order *and* using Apple's stock H.264 codec**. Forcing the field order and using an x264 codec[^4] made no difference—and rather looked like the poor output from Handbrake (likely because Handbrake uses x264 too).
 
 ### Summary of Repair Solution
 
@@ -228,7 +228,7 @@ Inspired by: <http://www.streaminglearningcenter.com/articles/first-look-apple-c
 * Rename as H.264 for Archival
 * Change Data rate from Web publishing (19531 kbps) to Computer playback (29296 kbps). Note rates listed in Compressor are for actual 4K footage and will be smaller for 720p footage.
 * Change retiming quality from Fast to Better (Motion Adaptive)
-* Change audio from AAC to Linear PCM 48kHz, Best Quality, 16-bit Little Endian (the Intel Default)[^4]
+* Change audio from AAC to Linear PCM 48kHz, Best Quality, 16-bit Little Endian (the Intel Default)[^5]
 
 ![]({% asset_path upto4k-01.png %})
 ![]({% asset_path upto4k-02.png %})
@@ -242,6 +242,7 @@ Inspired by: <http://www.streaminglearningcenter.com/articles/first-look-apple-c
 ### References
 
 [^1]: Tip to use `:tff` in Handbrake <http://stackoverflow.com/questions/9287122/how-do-i-set-the-interlaced-flag-on-an-mkv-file-so-that-vlc-can-automatically-pl>{:target="_blank"}
-[^2]: Recorded Interlaced Source as Progressive file - now what? <http://forum.telestream.net/forum/messageview.aspx?catid=45&threadid=23213>{:target="_blank"}
-[^3]: <https://larryjordan.com/articles/compressor-x264-improve-video/>
-[^4]: <https://larryjordan.com/articles/it-aint-the-endian-of-the-world/>{:target="_blank"}
+[^2]: Examples of combing <https://en.wikipedia.org/wiki/Interlaced_video#Interlacing_problems>{:target="_blank"}
+[^3]: Recorded Interlaced Source as Progressive file - now what? <http://forum.telestream.net/forum/messageview.aspx?catid=45&threadid=23213>{:target="_blank"}
+[^4]: <https://larryjordan.com/articles/compressor-x264-improve-video/>
+[^5]: <https://larryjordan.com/articles/it-aint-the-endian-of-the-world/>{:target="_blank"}
