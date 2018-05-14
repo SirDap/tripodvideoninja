@@ -1,10 +1,10 @@
 language: ruby
-rvm: 2.0.0
+rvm: 2.3.3
 before_install:
 - travis_retry gem install bitballoon
-- travis_retry gem install jekyll
-- travis_retry gem install jekyll-assets
-script: jekyll build
+- travis_retry gem install jekyll -v 3.8.1
+- travis_retry gem install jekyll-assets -v 3.0.11
+script: bundle exec jekyll build
 after_success: bitballoon deploy _site --access-token=$BB_ACCESS_TOKEN --site-id=$BB_SITE_ID
 branches:
   only:
