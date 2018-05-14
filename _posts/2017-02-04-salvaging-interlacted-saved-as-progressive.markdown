@@ -43,7 +43,7 @@ Of these three, **Compressor was the clear winner**.
 
 Compressor, it seems, has a handy feature that allows "forcing" an input file's field order. By carefully clicking on the input file's box, the Inspector window on the right shows a little section called **File Properties**.
 
-![]({% asset_path compressor-force-field-order.png %})
+![]({% asset compressor-force-field-order.png @path %})
 
 Since the file is actually H.264, Compressor reads the metadata and selects Progressive by default. Changing this to **Top First** forces it to treat it as interlaced (since HDV is top field first).
 
@@ -97,7 +97,7 @@ Final confirmation with a 11 sec, 9 MB segment instead.
 
 **Original** *especially note the combing during fast hand movements*
 <div class="videoWrapper">
-<video controls width="640" height="360" preload="metadata" poster="{% asset_path deinterlace-clip2-better-retiming-poster.png %}">
+<video controls width="640" height="360" preload="metadata" poster="{% asset deinterlace-clip2-better-retiming-poster.png @path %}">
   <source src="{% b2 1080iHDVSavedAs720pH264Clip2.mov %}" type="video/mp4">
 Your browser does not support the video tag.
 </video>
@@ -114,7 +114,7 @@ It's hard for me to tell if there's an appreciable difference between the two re
 
 **Repaired (Up to 4K Better Retiming)** *look Ma, no lines!*
 <div class="videoWrapper">
-<video controls width="640" height="360" preload="metadata" poster="{% asset_path deinterlace-clip2-orig-poster.png %}">
+<video controls width="640" height="360" preload="metadata" poster="{% asset deinterlace-clip2-orig-poster.png @path %}">
   <source src="{% b2 1080iHDVSavedAs720pH264Clip2-Up-to-4K-Better-Retiming.mov %}" type="video/mp4">
 Your browser does not support the video tag.
 </video>
@@ -142,13 +142,13 @@ Inspired by: <https://larryjordan.com/articles/compressor-x264-improve-video/>
 		* Flags > crf turned on. Everything else left as is
 * Retiming quality set to Better (Motion Adaptive)
 
-![]({% asset_path jordanx264-01.png %})
-![]({% asset_path jordanx264-02.png %})
-![]({% asset_path jordanx264-03.png %})
-![]({% asset_path jordanx264-04.png %})
-![]({% asset_path jordanx264-05.png %})
-![]({% asset_path jordanx264-06.png %})
-![]({% asset_path jordanx264-07.png %})
+![]({% asset jordanx264-01.png @path %})
+![]({% asset jordanx264-02.png @path %})
+![]({% asset jordanx264-03.png @path %})
+![]({% asset jordanx264-04.png @path %})
+![]({% asset jordanx264-05.png @path %})
+![]({% asset jordanx264-06.png @path %})
+![]({% asset jordanx264-07.png @path %})
 
 #### x264 Jan Ozer-esque (Compressor)
 
@@ -169,14 +169,14 @@ Inspired by: <http://www.streaminglearningcenter.com/articles/first-look-apple-c
 	* Hit OK
 * Retiming quality set to Better (Motion Adaptive)
 
-![]({% asset_path ozerx264-01.png %})
-![]({% asset_path ozerx264-02.png %})
-![]({% asset_path ozerx264-03.png %})
-![]({% asset_path ozerx264-04.png %})
-![]({% asset_path ozerx264-05.png %})
-![]({% asset_path ozerx264-06.png %})
-![]({% asset_path ozerx264-07.png %})
-![]({% asset_path ozerx264-08.png %})
+![]({% asset ozerx264-01.png @path %})
+![]({% asset ozerx264-02.png @path %})
+![]({% asset ozerx264-03.png @path %})
+![]({% asset ozerx264-04.png @path %})
+![]({% asset ozerx264-05.png @path %})
+![]({% asset ozerx264-06.png @path %})
+![]({% asset ozerx264-07.png @path %})
+![]({% asset ozerx264-08.png @path %})
 
 #### x264 Deinterlace (HandBrake)
 
@@ -184,9 +184,9 @@ Inspired by: <http://www.streaminglearningcenter.com/articles/first-look-apple-c
 * Picture Settings > Filters
 	* Deinterlace: Bob
 
-![]({% asset_path hbx264-01.png %})
-![]({% asset_path hbx264-02.png %})
-![]({% asset_path hbx264-03.png %})
+![]({% asset hbx264-01.png @path %})
+![]({% asset hbx264-02.png @path %})
+![]({% asset hbx264-03.png @path %})
 
 #### x264 Decomb (HandBrake)
 
@@ -194,9 +194,9 @@ Inspired by: <http://www.streaminglearningcenter.com/articles/first-look-apple-c
 * Picture Settings > Filters
 	* Decomb: Bob
 
-![]({% asset_path hbx264-04.png %})
-![]({% asset_path hbx264-05.png %})
-![]({% asset_path hbx264-06.png %})
+![]({% asset hbx264-04.png @path %})
+![]({% asset hbx264-05.png @path %})
+![]({% asset hbx264-06.png @path %})
 
 #### x264 Deinterlace, Top Field First (HandBrake)
 
@@ -205,7 +205,7 @@ Inspired by: <http://www.streaminglearningcenter.com/articles/first-look-apple-c
 	* Deinterlace: Bob
 * Add `:tff` under Additional Options
 
-![]({% asset_path hbx264-07.png %})
+![]({% asset hbx264-07.png @path %})
 
 #### x264 Decomb, Top Field First (HandBrake)
 
@@ -214,14 +214,14 @@ Inspired by: <http://www.streaminglearningcenter.com/articles/first-look-apple-c
 	* Decomb: Bob
 * Add `:tff` under Additional Options
 
-![]({% asset_path hbx264-08.png %})
+![]({% asset hbx264-08.png @path %})
 
 #### Apple ProRes 422 (Compressor)
 
 * Started with stock preset
 * Retiming quality set to Better (Motion Adaptive)
 
-![]({% asset_path prores-01.png %})
+![]({% asset prores-01.png @path %})
 
 #### H.264 for Archival (Compressor)
 * Duplicate stock Up to 4K preset (can be found under either Publish to Vimeo or Publish to YouTube)
@@ -230,14 +230,14 @@ Inspired by: <http://www.streaminglearningcenter.com/articles/first-look-apple-c
 * Change retiming quality from Fast to Better (Motion Adaptive)
 * Change audio from AAC to Linear PCM 48kHz, Best Quality, 16-bit Little Endian (the Intel Default)[^5]
 
-![]({% asset_path upto4k-01.png %})
-![]({% asset_path upto4k-02.png %})
-![]({% asset_path upto4k-03.png %})
-![]({% asset_path upto4k-04.png %})
+![]({% asset upto4k-01.png @path %})
+![]({% asset upto4k-02.png @path %})
+![]({% asset upto4k-03.png @path %})
+![]({% asset upto4k-04.png @path %})
 
 #### PHYX Cleaner
 
-![]({% asset_path phyx-cleaner-deinterlace-settings.png %})
+![]({% asset phyx-cleaner-deinterlace-settings.png @path %})
 
 ### References
 

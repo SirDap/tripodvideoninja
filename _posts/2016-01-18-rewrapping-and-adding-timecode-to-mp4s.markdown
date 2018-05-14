@@ -36,13 +36,13 @@ Note: timecode seems to be automatically calculated based on the framerate of th
 
 While ffmpeg successfully added timecode, the resulting file was a disaster for editing. The file systematically quits @ 20 seconds on any render in Compressor, suggesting some kind of container corruption.
 
-![Timecode added by ffmpeg fails to render with Compressor]({% asset_path timecode-ffmpeg-compressor-fail.png %})
-![]({% asset_path timecode-ffmpeg-compressor42-scrubbing-fail.png %})
+![Timecode added by ffmpeg fails to render with Compressor]({% asset timecode-ffmpeg-compressor-fail.png @path %})
+![]({% asset timecode-ffmpeg-compressor42-scrubbing-fail.png @path %})
 
 Furthermore, although the file did play in QuickTime Player X and QuickTime Player 7, scrubbing with the playhead sometimes caused the application to crash! The first frame also often shows as black—note in particular the strange, red vertical lines in Compressor's preview window!
 
-![Timecode added by ffmpeg crashes during QT7 scrubbing]({% asset_path timecode-ffmpeg-qt7-scrubbing-fail.png %})
-![Black opening frame in Compressor]({% asset_path timecode-ffmpeg-compressor-black-screen.png %})
+![Timecode added by ffmpeg crashes during QT7 scrubbing]({% asset timecode-ffmpeg-qt7-scrubbing-fail.png @path %})
+![Black opening frame in Compressor]({% asset timecode-ffmpeg-compressor-black-screen.png @path %})
 
 In a way, ffmpeg is a video delivery king, but perhaps not an editing king.
 
@@ -56,7 +56,7 @@ Also, the GUI is very rough around the edges:
 * When processing the program won't come back to the foreground. Hovering with the mouse shows the little color pinwheel...
 * Files also can't be dragged and dropped, etc.
 
-![Timecode added by mp4toqt61 fails to render with Compressor]({% asset_path timecode-mp4toqt61-compressor-fail.png %})
+![Timecode added by mp4toqt61 fails to render with Compressor]({% asset timecode-mp4toqt61-compressor-fail.png @path %})
 
 So ya, the little things—and some big things as well.
 
@@ -72,35 +72,35 @@ So ya, the little things—and some big things as well.
 
 Moreover, CinePlay's Export window offers a rewrapping option ([see their own blog post here](https://www.digitalrebellion.com/blog/posts/rewrapping_mp4_to_mov_with_cineplay)) which automatically adds NDF timecode starting at 00:00:00:00—perfect for changing MP4 containers to MOV. The process however cannot be scripted from the CLI, but could be, in principle, via AppleScript to queue multiple files for export at at time.
 
-![]({% asset_path cineplay-rewrap-export.png %})
+![]({% asset cineplay-rewrap-export.png @path %})
 
 The rewrapped MOV itself appears to have full structural integrity. No funny glitches and crashes when processing the file. It does however start with a black image sometimes—but unlike the ffmpeg one, this doesn't show any funny red lines in Compressor's preview window. It also passes the Compressor test: no crash at the lovely 20 second mark.
 
-![]({% asset_path cineplay-black-screen-timecode-starts-at-zero.png %})
-![]({% asset_path cineplay-compressor-black-screen.png %})
-![]({% asset_path cineplay-compressor-success.png %})
+![]({% asset cineplay-black-screen-timecode-starts-at-zero.png @path %})
+![]({% asset cineplay-compressor-black-screen.png @path %})
+![]({% asset cineplay-compressor-success.png @path %})
 
 The rewrapped MOV is also roughly the same size, within a few bytes.
 
-![]({% asset_path timecode-test-original-stats.png %})
-![]({% asset_path cineplay-rewrap-stats.png %})
+![]({% asset timecode-test-original-stats.png @path %})
+![]({% asset cineplay-rewrap-stats.png @path %})
 
 However, while the original was `159164` frames, the rewrapped one is `159111`.
 
-![]({% asset_path rewrap-original-frame-count.png %})
-![]({% asset_path cineplay-rewrap-missing-frames.png %})
+![]({% asset rewrap-original-frame-count.png @path %})
+![]({% asset cineplay-rewrap-missing-frames.png @path %})
 
 The first setback is CinePlay changes the File Creation Date of the file (i.e. the one that's read from `GetFileInfo` from the Terminal) so the date in FCP X is changed from the original to the date of the rewrapping. Also note, though how the timecode duration *appears* longer in FCP X ... This I take is because the timecode track is NDF but the FR is 29.97, and/or some metadata is incorrect in CinePlay's rewrap. (In Compressor, the last frame's timecode is `01:28:23:21`.)
 
-![]({% asset_path rewrap-editready-file-dates.png %})
+![]({% asset rewrap-editready-file-dates.png @path %})
 
 Also, the frame rate of the rewrapped footage is no longer 29.97 but instead 30, as told to Compressor.
 
-![]({% asset_path cineplay-changes-framerate-metadata.png %})
+![]({% asset cineplay-changes-framerate-metadata.png @path %})
 
 Another hiccup was ... the Compressor render never completed!
 
-![]({% asset_path cineplay-compressor-hang-bad-file.png %})
+![]({% asset cineplay-compressor-hang-bad-file.png @path %})
 
 Turns out the original movie file I inherited was somehow corrupt. (Photos probably isn't the best tool to import AVCHD footage.) Not CinePlay's fault at all but it does knock it out of first place!
 
@@ -112,36 +112,36 @@ Turns out the original movie file I inherited was somehow corrupt. (Photos proba
 
 EditReady's algorithms can correct this, so it's really the most versatile program out there. Rewrapping with EditReady makes Compressor super, super happy.
 
-![]({% asset_path edit-ready-rewrap-window.png %})
+![]({% asset edit-ready-rewrap-window.png @path %})
 
 EditReady's rewrap affected the FCP X date at first, but turns out it was because there were conflicting dates inside the container's metadata!
 
-![]({% asset_path rewrap-editready-file-dates.png %})
+![]({% asset rewrap-editready-file-dates.png @path %})
 
 EditReady's super helpful Metadata window calls this to your attention and allows you to select and/or set which date you would like.
 
-![]({% asset_path editready-metadata-date-conflict-window.png %})
-![]({% asset_path editready-metadata-date-resolved-window.png %})
+![]({% asset editready-metadata-date-conflict-window.png @path %})
+![]({% asset editready-metadata-date-resolved-window.png @path %})
 
 As you can see the original file does not have any timecode. By default, EditReady will preserve timecode if present, but not generate it if absent on the original. However, clicking the + icon in the upper right allows one to add a timecode tag as well! (By default, if the field is blank, timecode will start at 00:00:00:00).
 
-![]({% asset_path editready-metadata-timecode-add.png %})
-![]({% asset_path editready-metadata-timecode-add-result.png %})
+![]({% asset editready-metadata-timecode-add.png @path %})
+![]({% asset editready-metadata-timecode-add-result.png @path %})
 
 The size of the rewrapped, timecode footage is the same within a few bytes. Strangely enough, QuickTime Player 7 did crash a few times when scrubbing both.
 
-![]({% asset_path timecode-test-original-stats.png %})
-![]({% asset_path editready-rewrap-stats.png %})
+![]({% asset timecode-test-original-stats.png @path %})
+![]({% asset editready-rewrap-stats.png @path %})
 
 The rewrapped video however was larger in the number of frames: without timecode generation, it was `159165` frames instead of `159164` and with timecode it was `159166`. Thinking this might have been the potential missing frame correction, I checked against another clip that rendered properly in Compressor, but the EditReady rewrap (without timecode) was again greater in frames: `174150` vs `174149`.
 
-![]({% asset_path rewrap-original-frame-count.png %})
-![]({% asset_path editready-rewrap-one-extra-frame.png %})
-![]({% asset_path editready-rewrap-two-extra-frames.png %})
+![]({% asset rewrap-original-frame-count.png @path %})
+![]({% asset editready-rewrap-one-extra-frame.png @path %})
+![]({% asset editready-rewrap-two-extra-frames.png @path %})
 
 While the cause is unknown (roundoff error maybe?), the implication of the change in number of frames is clear: rewrapping footage will make relinking offline media a nightmare! Attempting to relink the timecode version with the original brings this lovely dialog:
 
-![]({% asset_path editready-rewrap-frame-change-relinking.png %})
+![]({% asset editready-rewrap-frame-change-relinking.png @path %})
 
 Thus, always rewrap footage first before beginning editing.
 
