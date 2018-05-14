@@ -18,5 +18,5 @@ twitter_username: tripodninja
 # Build settings
 markdown: kramdown
 
-gems:
+plugins:
 - jekyll-assets
