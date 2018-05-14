@@ -4,3 +4,6 @@ _site
 .asset-cache
 
 *.cache
+.DS_Store
+.bitballoon
+build.zip
