@@ -9,7 +9,7 @@ categories: organization metadata
 
 ### The Dream
 
-With over ten years of Indian classical music concert footage, i've always dreamt of tagging each by rāga, tāla, artist, audio/video quality, etc. and quickly pull up footage based on smart bins. Looking for śivarañjanī? No problem. Dhrupad? Got that too. How about all files that need audio synced up? Coming right up.
+With over ten years of Indian classical music concert footage, I've always dreamt of tagging each file by rāga, tāla, artist, audio/video quality, etc. and quickly pull up footage based on smart bins. Looking for śivarañjanī? No problem. Dhrupad? Got that too. How about all files that need audio synced up? Coming right up.
 
 Yup, the dream.
 
@@ -29,7 +29,7 @@ Is there a solution worth investing in which still leaves one's workflow open an
 
 #### BulletProof
 
-BulletProof was my first attempt once upon a time. Their initial rollout of the app, which did not support linking media, prevented my initial efforts: terabytes of existing footage can't really be copied somewhere else. They eventually added linking, but then the application didn't support Sony XAVC-S, which i use heavily. As of June 8, 2015 (v12.7.0 of the Shooter Suite), the application is retired, [due to lack of public interest](https://www.redgiant.com/products/shooter-suite/downloads/ http://www.provideocoalition.com/fare-thee-well-red-giant-bulletproof). 
+BulletProof was my first attempt. Their initial rollout of the app, which did not support linking media, prevented my initial efforts: terabytes of existing footage can't really be copied somewhere else. They eventually added linking, but even then the application didn't support Sony XAVC-S, which I use heavily. As of June 8, 2015 (v12.7.0 of the Shooter Suite), the application is retired, [due to lack of public interest](https://www.redgiant.com/products/shooter-suite/downloads/ http://www.provideocoalition.com/fare-thee-well-red-giant-bulletproof). 
 
 Even when it was officially supported, BulletProof left a large gap for media management:
 
@@ -50,13 +50,13 @@ Here's how it applied, at least to my workflow.
 
 Cons
 	
-* The FCP X model seems to be "have all your media available at all times." All previously-open libraries reappear on launch, and since i tend to hop around different clients, closing and reopening them to keep content relevant is a little tedious. The library model just seems too restrictive.
+* The FCP X model seems to be "have all your media available at all times." All previously-open libraries reappear on launch, and since I tend to hop around different clients, closing and reopening them to keep content relevant is a little tedious. The library model just seems too restrictive.
 * Layout-wise, FCP X does not seem set up for vast library organization. The clip viewer is rather small, and the selected clip does not show up in the large empty timeline below. As soon as the clip width is set to a smaller timescale (to see and add markers, etc.) it becomes very difficult to see any other clips!
 * Libraries must have at least one "event" at all times.
 
 Cons
 
-* Projects are at the library level. So if i were to have different events for each concert all in the same project, then all the projects will be sitting together, making it difficult to focus on the one at hand. And because projects cannot be locked, there is greater chance i could modify a preciously finalized project.
+* Projects are at the library level. So if I were to have different events for each concert all in the same project, then all the projects will be sitting together, making it difficult to focus on the one at hand. And because projects cannot be locked, there is greater chance I could modify a preciously finalized project.
 
 Pros
 
@@ -89,9 +89,9 @@ Pros
 
 ### Silverstack
 
-[Silverstack](http://pomfort.com/silverstack/overview.html) *markets* itself as a robust media management application. i should be fair to say i haven't used the application, but from their website it seems to do much more. Some features like cloud sharing remind me  Kollaborate, and others like ProRes exporting remincse of EditReady. Their model is also a yearly subscription.
+[Silverstack](http://pomfort.com/silverstack/overview.html) *markets* itself as a robust media management application. I should be fair to say I haven't used the application, but from their website it seems to do much more. Some features like cloud sharing remind me  Kollaborate, and others like ProRes exporting remincse of EditReady. Their model is also a yearly subscription.
 
-To be fair, i did not try the product myself, but from a first glance it seems to fall in
+To be fair, I did not try the product myself, but from a first glance it seems to fall in
 
 ### Adobe Bridge
 

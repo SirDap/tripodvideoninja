@@ -4,20 +4,21 @@ title:  "Reverse Engineering XAVC-S XML Files for Info"
 date:   2016-01-03 18:15:56 -0500
 categories: codecs metadata
 ---
+
+[Updated May 14, 2018 with wording changes.]
+
 * TOC
 {:toc}
 
 ## Introduction
 
-Many new Sony video cameras (like the [FDR-AX100](http://www.sony.com/electronics/handycam-camcorders/fdr-ax100) and [HDR-CX900](http://www.sony.com/electronics/handycam-camcorders/hdr-cx900)) record into the new XAVC-S format. XAVC-S writes to mp4 container files, and along side them sit nice little XML files with metadata.
+Many new Sony video cameras (like the [FDR-AX100](http://www.sony.com/electronics/handycam-camcorders/fdr-ax100) and [HDR-CX900](http://www.sony.com/electronics/handycam-camcorders/hdr-cx900)) record into the XAVC-S format. XAVC-S writes to MP4 containers, and alongside them sit nice little XML files with metadata.
 
-The following is what i've unearthed from poking around the SD card. This post may not be particuarly useful per se, but it's more a log of some observations.
+The following is what I've unearthed from poking around the SD card. This post mainly serves as a log of observations.
 
 ### Test Setup
 
-The AX100 has three FPS settings when recording to the XAVC-S HD file format (60p, 30p and 24p) and two when recording to XAVS-S 4K (30p and 24p). Turns out the FPS information is tucked away in the XML file quite neatly!
-
-Interestingly, the bitrate which differentiates XAVC-S HD (50 Mbps) and XAVC-S 4K (60 Mbps) is not present in the clip XML. It is however present in `M4ROOT/MEDIAPRO.XML` file!
+The AX100 has three FPS settings when recording to the XAVC-S HD file format (60p, 30p and 24p) and two when recording to XAVS-S 4K (30p and 24p).
 
 For this test there were five shots:
 
@@ -28,7 +29,7 @@ For this test there were five shots:
 * XAVC-S 4K, 24 fps
 
 ### MEDIAPRO.XML
-This file is located inside the `PRIVATE/M4ROOT/` folder and contains a summary of all files on the card and their bitrates. The resolution is inside the `videoType` attribute i.e. `1920_1080` for HD and `3840_2160` for 4K. Note how `@L41` and `@L42` seem to indicate 50 Mbps and `@L51` indicates 60 Mbps.
+This file is located inside the `PRIVATE/M4ROOT/` folder and contains a **summary of all files on the card and their bitrates**. The resolution is inside the `videoType` attribute i.e. `1920_1080` for HD and `3840_2160` for 4K. Note how `@L41` and `@L42` seem to indicate 50 Mbps and `@L51` indicates 60 Mbps.
 
 ~~~
 <?xml version="1.0" encoding="UTF-8"?>
@@ -62,9 +63,9 @@ This file is located inside the `PRIVATE/M4ROOT/` folder and contains a summary 
 </MediaProfile>
 ~~~
 
-### Clip-specific XML
+### Sidecar XML
 
-These files are located inside `PRIVATE/M4ROOT/CLIP` and sit alongside the actual XAVC-S MP4 files themselves. It appears bitrate information is not present on these files.
+These files are located inside `PRIVATE/M4ROOT/CLIP` and sit alongside the actual XAVC-S MP4 files themselves. Interestingly, **only FPS information is present in these sidecar XMLs**. Bitrate information is only present in the `M4ROOT/MEDIAPRO.XML` file!
 
 #### XAVC-S HD, 60 fps
 `tcFps="30" halfStep="true"` indicates 60 fps (i.e. 30 halved)
