@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Salvaging Interlaced Footage Saved as Progressive"
-subtitle: Waking up From an HDV-H.264 Nightmare
+title:  "Repairing H.264 Interlaced Footage"
+subtitle: Waking up From an Progressive Scan Nightmare
 date:   2017-02-04 17:49:56 -0500
 categories:
 ---
