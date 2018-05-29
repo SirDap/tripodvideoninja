@@ -13,7 +13,7 @@ Sometimes, when collaborating on projects virtually, file storage becomes a prob
 
 ### Free, Simple File Sends
 
-[Filemail.com](https://filemail.com) is a really convenient web service that allows for sends of up to 50 GB at a time in their free tier. Receipients can either download files in the web browser or can torrent them for convenient pause/resumes.
+[Filemail.com](https://filemail.com){:target="_blank"} is a really convenient web service that allows for sends of up to 50 GB at a time in their free tier. Receipients can either download files in the web browser or can torrent them for convenient pause/resumes.
 
 Filemail is typically the service I've asked others to send me raw video files through.
 
