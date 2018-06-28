@@ -8,7 +8,6 @@ permalink: /work/
 
 #### Vinay Mallikaarjun
 Filming (dual cam) and editing
-{% youtube OyPn9DpZiQ} %}
 
 ### 2014
 
