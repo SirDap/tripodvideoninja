@@ -19,3 +19,4 @@ markdown: kramdown
 
 plugins:
 - jekyll-assets
+- jekyll-twitter-plugin
