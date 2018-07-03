@@ -12,7 +12,7 @@ description: 'Freelance videographer specializing in recording and streaming of 
 baseurl: ''
 url: https://krishna.video
 twitter_username: tripodninja
-#github_username:  jekyll
+github_username: NaanProphet
 
 # Build settings
 markdown: kramdown
