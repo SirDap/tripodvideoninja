@@ -20,4 +20,3 @@ theme: minima
 google_analytics: UA-121779698-1
 plugins:
 - jekyll-assets
-- jekyll-twitter-plugin
