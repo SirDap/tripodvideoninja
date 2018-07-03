@@ -4,9 +4,14 @@ title: About
 permalink: /about/
 ---
 
-### Gear
+### Kits
+
+<iframe src="https://kit.com/embed?url=https%3A%2F%2Fkit.com%2FTripodNinja%2Fsolo-multicam-live-streaming-gear" style="display: block; border: 0px; margin: 0 auto; width: 100%; height: 100vw; max-width: 700px; max-height: 700px" scrolling="no"></iframe>
+
+### Gear List
 
 #### Hardware
+
 * [2007 MacBook Pro 2,2](http://www.everymac.com/systems/apple/macbook_pro/specs/macbook-pro-core-2-duo-2.16-15-specs.html)
   * 15.4" Matte Screen
   * 2.16 GHz Intel Core 2 Duo
