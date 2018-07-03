@@ -2,22 +2,15 @@
   <data class="u-url" href="{{ "/" | relative_url }}"></data>
 
   <div class="wrapper">
-
-    <h2 class="footer-heading">{{ site.title | escape }}</h2>
+     <div style="float: left;">
+         <img src="{% asset logo.png @path %}" height="150px" />
+     </div>
 
     <div class="footer-col-wrapper">
       <div class="footer-col footer-col-1">
+        <h2 class="footer-heading">{{ site.title | escape }}</h2>
         <ul class="contact-list">
-          <li class="p-name">
-            {%- if site.author -%}
-              {{ site.author | escape }}
-            {%- else -%}
-              {{ site.title | escape }}
-            {%- endif -%}
-            </li>
-            {%- if site.email -%}
-            <li><a class="u-email" href="mailto:{{ site.email }}">{{ site.email }}</a></li>
-            {%- endif -%}
+          <li><br /><a class="u-email" href="mailto:{{ site.email }}">{{ site.email }}</a></li>
         </ul>
       </div>
 
@@ -26,7 +19,7 @@
       </div>
 
       <div class="footer-col footer-col-3">
-        <p>{{- site.description | escape -}}</p>
+        <p>{{- site.description | escape -}}&nbsp;Logo design by Christopher Seto.</p>
       </div>
     </div>
 
