@@ -6,11 +6,11 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: TripodVideoNinja | Krishna Bhamidipati
+title: TripodNinja | Krishna Bhamidipati
 email: email@krishna.video
 description: 'Freelance videographer specializing in recording and streaming of classical music concerts.'
 baseurl: ''
-url: http://tripodvideo.ninja
+url: https://krishna.video
 twitter_username: tripodninja
 #github_username:  jekyll
 
