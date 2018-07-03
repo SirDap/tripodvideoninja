@@ -106,7 +106,7 @@ DEPENDENCIES
   jekyll-assets (~> 3.0.11)
   jekyll-feed (~> 0.10)
   jekyll-twitter-plugin (~> 2.0)
-  minima (~> 2.0)
+  minima (~> 2.5)
   tzinfo-data
 
 BUNDLED WITH
