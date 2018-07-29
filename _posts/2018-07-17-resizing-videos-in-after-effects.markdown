@@ -1,5 +1,5 @@
 ---
-title: [DRAFT] Resizing Videos in After Effects
+title: DRAFT Resizing Videos in After Effects
 subtitle: Upconversion and RAM Struggles 
 date: 2018-07-17 09:28:42 Z
 categories:
