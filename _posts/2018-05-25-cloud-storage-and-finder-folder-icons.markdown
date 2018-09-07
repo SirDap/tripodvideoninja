@@ -16,6 +16,8 @@ What this means is one day, when I decide to restore a project, all the Finder f
 
 What about if we wrote our own script to do that instead?
 
+**Check it out on [GitHub](https://github.com/NaanProphet/finder-folder-icons)**{:target="_blank"}**!**
+
 ### Let's Go, Automator
 
 Automator Services are awesome. This little guy can be triggered in any application from a single folder. Here's the overview:
@@ -38,9 +40,10 @@ Furthermore, since the `png` file is named with the same color, the status of pr
 The only tradeoffs are:
 
 * It is not an automatic process.
+
 * In order to completely remove a color, the icon, label, and `png` file must be manually deleted. (Changing a label to another color is supported automatically.)
 
-Check it out on [GitHub](https://github.com/NaanProphet/finder-folder-icons){:target="_blank"}!
+  
 
 ### Appendix: But what about...
 
