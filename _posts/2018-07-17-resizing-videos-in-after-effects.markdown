@@ -70,9 +70,9 @@ Eventually the iMac also started freezing up for the larger files. However after
 
 #### Observations on RAM Pressure
 
-One thing I noticed was even after a render is complete, After Effects typically still holds onto the RAM. Some of it can be purged by manually choosing <blah> but it only releases in full when the program is completely closed. Exiting the program usually takes a while too, sometimes of upwards of 2 minutes as it slowly siphons the RAM back.
+One thing I noticed was even after a render is complete, After Effects typically still holds onto the RAM. Some of it can be purged by manually by selecting **Edit > Purge > All Memory & Disk Cache...** but it's my observation that the RAM is only released completely after closing the program. Exiting the program usually takes a while too, sometimes of upwards of 2 minutes as it slowly siphons the RAM back.
 
-On the iMac with 12 GB RAM however, I had no trouble queing up multiple renders.
+On the iMac with 12 GB RAM however, I had no trouble queueing up multiple renders.
 
 ### References
 [^1]: Dropped Frames when recording to disc <https://telestreamforum.forumbee.com/r/m2knvp>
