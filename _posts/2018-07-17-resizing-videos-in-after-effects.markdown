@@ -1,13 +1,12 @@
 ---
+layout: post
 title: Resizing HD/4K Video in After Effects
 subtitle: Upconversion and RAM Struggles 
 date: 2018-07-17 22:02:32 Z
-categories:
-- post
-layout: post
+categories: repair
 ---
 
-*[Updated Sep. 16, 2018 with ProRest 422 video samples and detailed After Effects walkthrough.]*
+*[Updated Sep. 16, 2018 with ProRes 422 video samples and detailed After Effects walkthrough.]*
 
 * TOC
 {:toc}

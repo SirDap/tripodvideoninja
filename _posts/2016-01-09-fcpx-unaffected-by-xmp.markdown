@@ -3,7 +3,7 @@ layout: post
 title:  "FCP X Now Unaffected by XMP Metadata"
 subtitle: "Hello open tagging. Goodbye fear of broken media links!"
 date:   2016-01-09 20:37:41 -0500
-categories: codecs metadata
+categories: storage
 ---
 * TOC
 {:toc}

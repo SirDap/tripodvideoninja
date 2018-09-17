@@ -3,7 +3,7 @@ layout: post
 title:  "Saving Finder Labels in Cloud Storage"
 subtitle: "When Extended Attributes are not Supported"
 date:   2018-05-25 08:54:33 -0500
-categories: 
+categories: storage
 ---
 * TOC
 {:toc}

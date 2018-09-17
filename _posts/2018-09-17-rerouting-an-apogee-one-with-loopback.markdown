@@ -1,10 +1,9 @@
 ---
 title: Using Loopback with Apogee ONE for Livestreams
 subtitle: Rerouting Audio to Virtual Audio Devices
-date: 2018-09-17 11:39:32 Z
-categories:
-- post
 layout: post
+date: 2018-09-17 11:39:32 Z
+categories: livestream
 ---
 
 * TOC

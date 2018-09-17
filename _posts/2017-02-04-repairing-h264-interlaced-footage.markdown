@@ -3,7 +3,7 @@ layout: post
 title:  "Repairing H.264 Interlaced Footage"
 subtitle: Waking up From an Progressive Scan Nightmare
 date:   2017-02-04 17:49:56 -0500
-categories:
+categories: repair
 ---
 * TOC
 {:toc}

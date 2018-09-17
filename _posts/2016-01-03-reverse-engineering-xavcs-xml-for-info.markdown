@@ -2,7 +2,7 @@
 layout: post
 title:  "Reverse Engineering XAVC-S XML Files for Info"
 date:   2016-01-03 18:15:56 -0500
-categories: codecs metadata
+categories: codecs
 ---
 
 [Updated May 14, 2018 with wording changes.]

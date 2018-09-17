@@ -2,7 +2,7 @@
 layout: post
 title:  "Livestreaming Lessons Learned"
 date:   2016-01-24 14:34:38 -0500
-categories: livestream hdv
+categories: livestream
 ---
 
 *[Updated Feb. 4, 2017 with additional Wirecast Record to Disk information.]*
@@ -66,7 +66,7 @@ When doing so the following tricks minimize dropped frames:
 
 1. **Either save in ProRes or in the same format as the livestream.** As this Wirecast forum post[^12] explains, each output format results in an additional real time encoder thus more CPU usage. H.264 can be particularly CPU intensive, especially when the settings specified cannot take advantage of hardware codecs. ProRes however is extremely light on the CPU, since it's uncompressed.
 2. **Use fast external disks as the destination.** As the same post[^12] explains, writing to disk on slow external drives can also result in dropped frames. I find writing to the same internal disk can also cause performance degredation, interfering with the livestream. However USB 3 and Lightning drives have more than enough bandwidth and don't spike CPU usage—even for ProRes. And that's a good thing, because ProRes files can run really big! Here's a rough guide for choosing the right size drive.
-   
+  
    | **Codec**  | **Resolution** | **Size on Disk**         |
    | ---------- | -------------- | ------------------------ |
    | ProRes 422 | 1080p          | 1.02 GB/min = 61.2 GB/hr |

@@ -1,9 +1,8 @@
 ---
 title: Livestreaming Lessons Re-Learned
-date: 2018-06-28 16:22:00 Z
-categories:
-- livestream
 layout: post
+date: 2018-06-28 16:22:00 Z
+categories: livestream
 ---
 
 * TOC
