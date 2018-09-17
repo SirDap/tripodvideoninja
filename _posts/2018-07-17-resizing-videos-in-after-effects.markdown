@@ -84,4 +84,4 @@ One thing I noticed was even after a render is complete, After Effects typically
 On the iMac with 12 GB RAM however, I had no trouble queueing up multiple renders.
 
 ### References
-[^1]: Red Giant's video guide for the Instant 4K plugin https://www.redgiant.com/tutorial/getting-started-with-instant-4k/
+[^1]: Red Giant's video guide for the Instant 4K plugin <https://www.redgiant.com/tutorial/getting-started-with-instant-4k/>
