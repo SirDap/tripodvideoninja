@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Rewrapping MP4s as MOVs to Add Timecode"
-subtitle: "Comparison of Timecode-generating Programs"
+subtitle: "A comparison of timecode-generating programs"
 date:   2016-01-24 11:37:23 -0500
 categories: codecs
 ---

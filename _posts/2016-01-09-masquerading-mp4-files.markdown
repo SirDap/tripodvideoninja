@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Renaming XAVC-S to M4V to Open with QT7"
-subtitle: "Masquerading MP4 Files from Sony XAVC-S for the Fail"
+title:  "Renaming .MP4 files to .M4V to open with QT7"
+subtitle: "Masquerading MP4 Files from Sony's XAVC-S format"
 date:   2016-01-09 09:05:26 -0500
 categories: codecs
 ---

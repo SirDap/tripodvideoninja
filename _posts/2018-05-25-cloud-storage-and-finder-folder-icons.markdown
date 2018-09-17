@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Saving Finder Labels in Cloud Storage"
-subtitle: "When Extended Attributes are not Supported"
+title:  "Persisting Finder Labels in Cloud Storage"
+subtitle: "Workarounds for saving extended attributes"
 date:   2018-05-25 08:54:33 -0500
 categories: storage
 ---

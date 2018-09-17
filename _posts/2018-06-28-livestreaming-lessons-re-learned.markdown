@@ -1,6 +1,7 @@
 ---
-title: Livestreaming Lessons Re-Learned
 layout: post
+title: Record to Disk Best Practices
+subtitle: Livestreaming lessons relearned
 date: 2018-06-28 16:22:00 Z
 categories: livestream
 ---
@@ -22,9 +23,9 @@ Even if it's an SSD.
 
 The result was particularly bad. Large dropped frames, audio/video sync issues, the works. And by works, I mean it's going to be a ton of work to cleanup too.
 
-I didn't catch the error until after coming home, because all I was paying attention to was the CPU usage. Because I wasn't even streaming and merely using Wirecast as a multicam monitor, CPU usage was always around 30%, and so I thought, "Oh we're doing really good."
+I didn't catch the error until after coming home, because all I was paying attention to was the CPU usage. I wasn't even streaming and merely using Wirecast as a multicam monitor. CPU usage was always around 30%, and so I thought, "Oh we're doing really good."
 
-### Record to Disk Best Practices
+### Wirecast Record to Disk Best Practices
 
 Here are the recommendations from Craig over on a post[^1] at the Wirecast forums from Nov 2017:
 
@@ -39,13 +40,13 @@ Here are the recommendations from Craig over on a post[^1] at the Wirecast forum
 > * Make sure you're not confusing variable frame rate with dropped frames. Wirecast records a variable frame rate to avoid dropped frames and keep motion smooth.
 > * If you're going to do post editing consider using MJPEG MOV instead of H.264.
 
-Interestingly, another forum post[^2] suggests USB3 can be temperamental. One guy had dropped frames from a bad cable!
+Interestingly, another forum post[^2] suggests USB3 can be temperamental. One person had dropped frames from a bad cable!
 
-### Why it Worked Last Time
+### Why it Worked Before
 
-In my case, the internal Scratch disk was actually on the same physical SSD as the OS. It did have 500 GB free, but that was irrelevant.
+Back in May 2018 (during the All-Night concert), I was connected via Thunderbolt to a RAID 0 striped LaCie 4 TB drive. Recording the livestream + HDV camera via Wirecast worked just fine.
 
-Contrast this in May 2018 with the All-Night concert, where I was hooked up via Thunderbolt to a RAID 0 striped LaCie 4 TB drive and recording the livestream + HDV camera via Wirecast just fine.
+However this time, the internal Scratch disk was actually on the same physical SSD as the OS. It did have 500 GB free, but free space was irrelevant.
 
 ### One Strike and You're Out... to Make it Better Next Time
 

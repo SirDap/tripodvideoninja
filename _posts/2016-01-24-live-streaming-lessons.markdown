@@ -16,14 +16,14 @@ categories: livestream
 
 Last May, for Chhandayan's All-Night Concert 2015 in NYC, I cut between two cameras in the livestream for the first time. Little did I know, there was a lot to learn.
 
-In hindsight here's what I'd do differently next time.
+Here's what I'd do differently next time.
 
 ### Transfer SD Card Footage with a Separate Laptop
 Red Giant's neat software [Offload](http://www.redgiant.com/products/offload/){:target="_blank"} made it really simple to transfer footage from the Sony AX100 cam. Since it also compares checksums of these giant video files, I suspect it spiked the CPU and caused some dropped frames—especially since Wirecast was writing to the same disk!
 
 Best to use another machine like a MacBook Air to dump SD footage. Any machine with a fast, built-in or USB 3.0 SD card reader really.
 
-### Always Ingest HDV Cams Using Uncompressed HDMI Outputs
+### Always Ingest HDV Cams as Uncompressed HDMI Outputs
 
 If the streaming laptop had another Thunderbolt port, this would have been a no-brainer a long time ago: rock two [Blackmagic Mini Recorder](https://www.blackmagicdesign.com/products/ultrastudiothunderbolt/techspecs/W-DLUS-04){:target="_blank"}s via Thunderbolt and call it a day. However my [2012 MacBook Pro 9,1](http://www.everymac.com/systems/apple/macbook_pro/specs/macbook-pro-core-i7-2.6-15-mid-2012-unibody-usb3-specs.html){:target="_blank"} has only one port, and the Mini Recorder is an endpoint with no daisy chaining (why o why).
 
