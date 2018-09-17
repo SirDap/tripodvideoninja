@@ -20,3 +20,8 @@ theme: minima
 google_analytics: UA-121779698-1
 plugins:
 - jekyll-assets
+
+reading_time:
+  second_plural: "sec"    # default: seconds
+  minute_singular: "min"  # default: minute
+  minute_plural: "min"    # default: minutes
