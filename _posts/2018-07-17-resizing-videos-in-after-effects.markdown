@@ -69,6 +69,8 @@ Little did I know how incredibly RAM-intensive resizing footage is. This problem
 
 The 2011 MBP actually *ran out of RAM*. Like kaput. I tried a few things like increasing After Effect's memory allocation, etc. but it was all the essentially same. Anything larger than 30 minutes would crash. Queuing up multiple renders wouldn't work, because the program would need to be restarted before each one. The laptop was already maxxed out with 8 GB RAM.
 
+![]({% asset after-effects-mbp-resize-crash.gif @path %}) 
+
 This is when I remembered that nice desktop in the basement.
 
 #### Return of the iMac
