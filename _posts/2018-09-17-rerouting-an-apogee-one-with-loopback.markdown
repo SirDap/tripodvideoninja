@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Routing an Apogee ONE with Loopback for Livestreams
-subtitle: Creating virtual audio devices
+title: Using an Apogee ONE for Livestream Audio
+subtitle: Routing virtual audio devices with Loopback and Audio Hijack Pro
 date: 2018-09-17 11:39:32 Z
 categories: livestream
 ---
