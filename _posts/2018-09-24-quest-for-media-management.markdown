@@ -96,19 +96,21 @@ That's alright for me, since their yearly subscription starts at $399. 🤤
 
 KeyFlow Pro blew me out of the water. It definitely seems like a more-mature sibling of Kyno, and is particularly Mac-centric.
 
-KeyFlow Pro roundtrips with FCP X like a boss. *Drag and drop from KeyFlow to FCP X and back.* It can open FCP X libraries directly too. And for the Adobe folks, it supports Premiere exports.
+* Clean and modern interface, indicates active product development. It's received a lot of critical acclaim too.[^11] [^12] [^13]
+* Roundtrips with FCP X like a boss. *Drag and drop from KeyFlow to FCP X and back.* ![KeyFlow Pro's Integration with FCP X]({% asset metadata-keyflowpro-1.png @path %})
+* It can open FCP X libraries directly too. 
+* For the Adobe folks, it supports Premiere exports.
+* Subtitle import with SRT ![KeyFlow Pro's Integration with FCP X]({% asset metadata-keyflowpro-2.png @path %})
+* Generate proxy footage so you can take low res version of video files on the road!
+  ![KeyFlow Pro Encoder Options]({% asset keyflowpro-encoder-options.png @path %})
 
-![KeyFlow Pro's Integration with FCP X]({% asset metadata-keyflowpro-1.png @path %})
 
-The interface is clean and modern. It's received a lot of critical acclaim too.[^11] [^12] [^13] KeyFlow Pro also supports subtitle import with SRT, and can generate proxy footage using ffmpeg so you can take low res version of video files on the road! I feel like I'm just beginning to scratch the surface of what it can do.
 
-![KeyFlow Pro's Integration with FCP X]({% asset metadata-keyflowpro-2.png @path %})
-
-KeyFlow Pro 2's pricing model is really attractive at $50 on the Mac App Store. There are various In-App Purchases available for client/server collaboration, but since I'm a single user I will simply park the library file on Dropbox and let it sync that way across my machines.
+KeyFlow Pro 2's pricing model is really attractive at $50 on the Mac App Store. In-App Purchases for client/server collaboration more, but since I'm a single user I would simply park the library file on Dropbox and let it sync that way across my machines.
 
 ### Conclusion
 
-**KeyFlow Pro 2** is now part of my software team, and I can't wait to use it more and more. It has a lot of features for the price, and while their documentation isn't always super polished (English typos, for example) I think it should do for now.
+**KeyFlow Pro 2** is now part of my software team, and I can't wait to use it more and more. It has a lot of features for the price, and I feel like I'm just beginning to scratch the surface of what it can do. Their documentation isn't always super polished (grammatical mistakes/typos, for example) but that's something I will live with.
 
 Time will tell if a file-based solution like Kyno will also find a place.
 
