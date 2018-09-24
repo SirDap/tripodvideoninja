@@ -52,10 +52,11 @@ Your browser does not support the video tag.
 
 1. Drag and drop the footage into After Effects
 2. Right-click a video file and create a new composition from it
-3. Right-click the composition and select **Composition Settings**. Change the **Preset** to the target resolution (e.g. `HDTV 1080 29.97`). The source video should now be smaller than the canvas size.
+3. Right-click the composition and select **Composition Settings**. Change the **Preset** to the target resolution (e.g. `HDTV 1080 29.97`). The source video should now be smaller than the canvas size. ![]({% asset after-effects-resize-settings-1.png @path %})
 4. Use the **Effects & Presets** dropdown to find the **Red Giant Shooter Suite ** section. Drag and drop the `Instant 4K` plugin into the composition's viewer to apply. It should automatically resize to the canvas size!
 5. Adjust the plugin settings as desired. I personally use **Filter Type Best, Sharpness 6, Quality 10, and Anti-aliasing 3**, based on Red Giant's Getting Started with Instant 4K video[^1].
-6. Select the composition and choose **Composition > Add to Render Queue** from the menubar. Use **Render Settings > Best Settings** using the small drop down, and create a new **Output Module** to export to **ProRes 422**.
+6. Select the composition and choose **Composition > Add to Render Queue** from the menubar. Use **Render Settings > Best Settings** using the small drop down. ![]({% asset after-effects-resize-settings-2.png @path %})
+7. Create a new **Output Module** to export to **ProRes 422**. ![]({% asset after-effects-resize-settings-3.png @path %})
 
 For reference, the 17 second video clip earlier took 3 minutes and 43 seconds to export on the 2011 iMac with 12 GB of RAM. That is, **13x**!
 
