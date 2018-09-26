@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Record to Disk Best Practices
+title: Wirecast Record to Disk Best Practices
 subtitle: Livestreaming lessons relearned
 date: 2018-06-28 16:22:00 Z
 categories: livestream
