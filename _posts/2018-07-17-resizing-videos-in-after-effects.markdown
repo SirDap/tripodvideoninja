@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Resizing Video in After Effects with Red Giant Instant 4K
-subtitle: Upconversion and RAM Struggles 
+title: Resizing Video with After Effects and Instant 4K
+subtitle: Minor RAM Struggles 
 date: 2018-07-17 22:02:32 Z
 categories: repair
 ---
@@ -14,23 +14,25 @@ categories: repair
 {:toc}
 ### Upconverting 480p Footage
 
-This May, I tried something new and recorded an HD-source livestream to 480p ProRes 422 to help save on disk space/throughput.
+This May, I tried something new and recorded a HD Wirecast livestream to disk as ProRes 422 @ 480p to help save on disk space/throughput.
 
-All of the other raw, camera footage was in 1080p and I wondered if there was some way to "upconvert" the SD resolution footage. I especially needed to do so because some of the raw camera footage got corrupted, and the livestream was the way to salvage that angle.
+All of the other raw, camera footage was in 1080p and I wondered if there was some way to "upconvert" the low res footage. (I especially needed to do so because some of the raw camera files got corrupted, and the livestream was the way to salvage that angle.)
 
-### Instant 4K and After Effects
+### Instant 4K Plugin and After Effects
 
-Despite the name, the **Red Giant Instant 4K** plugin is more like "Up to 4K." It's the latest version of their resizer plugin and is perfect for resizing to 1080p as well. From what I understand, the plugin uses some advanced interpolation algorithms to redraw each frame of the video as it expands it.
+Despite the name, the **Instant 4K** plugin is more like "Up to 4K." The plugin is part of the [Red Giant Shooter Suite](https://www.redgiant.com/products/shooter-suite) bundle and comes with support for Adobe Premiere and Adobe After Effects. From what I understand, the plugin uses some advanced interpolation algorithms to redraw each frame of the video as it expands it.
 
-Instant 4K is part of Red Giant's Shooter Suite bundle and comes with plugins for Adobe Premiere and Adobe After Effects. I used After Effects CC 2018 plugin.
+I used Adobe After Effects CC 2018 and rendered out to ProRes 422.
 
 ### A/B Video Comparison
 
-"Seeing is believing."
+"Seeing is believing." Here's a before/after test with the original 480 footage
 
-Here's a before/after test. Both files were opened in QuickTime Player X, and the 480p window was stretched to the same size as the 1080p window.[^2] Below is a looping slideshow of them before/after (image cropped to make it easier to see).[^3]
+#### Still Frames
 
-Notice how the clarity of text and richness of color is preserved in After Effects render! This is *even with* the inherent compression in both screenshots.
+ Both files were opened in QuickTime Player X, and the 480p window was stretched to the same size as the 1080p window.[^2] Below is a looping slideshow of the before/after still frames (image cropped to make it easier to see).[^3]
+
+Notice the difference in the clarity (text at top, violin bow) and richness of color (red blouse). This is *even with* the inherent compression in the screenshot.
 
 <script>
 function change_image() {
@@ -45,13 +47,16 @@ setInterval(change_image, 800);
 </script>
 <img id="Change_Image" src="{% asset resizing-prores-original.png @path %}" />
 
-If you have a 1080 display, here's another comparsion. Both videos are started in QT X together via ⌘+Enter and are toggled back and forth with ⌘+` (filename changes at the top). The screen capture was exported from Camtasia 2 as ProRes 4444 and compressed to H.264 by EditReady (visually lossless).
+#### Running Video
 
-The greatest quality loss in the screen capture itself, but it's still a useful test. Real-world delivery formats will be compressed, after all!
+If you have a 1920x1080 display, here's a video clip also. 
 
-If you're on a resolution smaller than 1920x1080, you'll probably be underwhelmed.
+Both files were played in QT X at the same time via ⌘+Enter and are toggled back and forth with ⌘+` (filename changes at the top) during playback. The screen capture was exported as ProRes 4444 (from Camtasia 2) and compressed to H.264 by EditReady using default settings (visually lossless). The eight second clip is 24 MB.
 
-There's definitely more compression visible (for example in the color red), but even then there's a noticable difference in the clarity of the resized image!
+There's definitely some compression in the H.264 render (for example in the color red), but even then there's a noticable difference in the clarity in the Instant 4K version. The greatest quality loss is likely in the screen capture (rather than Edit Ready), but it's still a useful test. Real-world delivery formats will be compressed, after all!
+
+*Note: if you're hard to impress, you'll definitely be underwhelmed when viewing this video at smaller screen resolutions. Be sure your display resolution > 1080p and use the HTML viewer to maximize it fullscreen.*
+
 
 <div class="videoWrapper">
 <video controls width="640" height="360" preload="metadata" poster="{% asset resizing-prores-poster.png @path %}">
@@ -60,15 +65,15 @@ Your browser does not support the video tag.
 </video>
 </div>
 
-Feel free to [download the raw ProRes 422 videos]({% b2 Wirecast-ProRes422-Resizing-Experiments.zip %}) to do your own comparisons too (190 MB).
+There's nothing like looking at the original uncompressed footage though, so feel free to [download the raw ProRes 422 videos]({% b2 Instant4KPlugin-ProRes422-Resizing-Experiments.zip %}) to do your own comparison (190 MB).
 
 
 
 
-### Plugin Workflow and Settings
+### Plugin Workflow and Screenshots
 
-1. Drag and drop the footage into After Effects
-2. Right-click a video file and create a new composition from it
+1. Drag and drop the footage into After Effects.
+2. Right-click a video file and create a new composition from it.
 3. Right-click the composition and select **Composition Settings**. Change the **Preset** to the target resolution (e.g. **HDTV 1080 29.97** with **Square Pixels**). The source video should now be smaller than the canvas size. ![]({% asset after-effects-resize-settings-1.png @path %})
 4. Use the **Effects & Presets** dropdown to find the **Red Giant Shooter Suite ** section. Drag and drop the `Instant 4K` plugin into the composition's viewer to apply. It should automatically resize to the canvas size!
 5. Adjust the plugin settings as desired. I personally use **Filter Type Best, Sharpness 6, Quality 10, and Anti-aliasing 3**, based on Red Giant's Getting Started with Instant 4K video[^1].
@@ -104,6 +109,6 @@ One thing I noticed was even after a render is complete, After Effects typically
 On the iMac with 12 GB RAM however, I had no trouble queueing up multiple renders.
 
 ### Footnotes
-[^1]: Red Giant's video guide for the Instant 4K plugin <https://www.redgiant.com/tutorial/getting-started-with-instant-4k/>
-[^2]: The 853x480 file could only be resized to 1920x1079 in QT X because of roundoff error. Hence the slight 1 pixel height difference when cycling between the two files.
-[^3]: This slideshow is rendered with Javascript, and is not a GIF, in order to minimize compression losses.
+[^1]: Red Giant's video guide for the Instant 4K plugin, from where my default settings were taken from. <https://www.redgiant.com/tutorial/getting-started-with-instant-4k/>
+[^2]: The 853x480 file could only be resized to 1920x1079 in QuickTime Player X because of roundoff error. Hence the slight 1 pixel height difference when cycling between the two files.
+[^3]: This slideshow is not a GIF. It's rendered with Javascript with two PNG images, in order to minimize compression losses.
