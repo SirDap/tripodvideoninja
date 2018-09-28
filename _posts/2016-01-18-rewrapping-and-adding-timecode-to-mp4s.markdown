@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Rewrapping MP4s as MOVs to Add Timecode"
-subtitle: "A comparison of timecode-generating programs"
+title:  "How to Add Timecode to MP4 Files"
+subtitle: "Rewrapping MP4s as MOVs to Add Timecode"
 date:   2016-01-24 11:37:23 -0500
 categories: codecs
 ---
@@ -12,7 +12,7 @@ categories: codecs
 
 Newer, prosumer codecs these days like Sony XAVC-S don't seem to record video with timecode. It's one of the chief drawbacks that knocks the otherwise brilliant Sony AX100 from solid professional use. Timecode tracks can save mountains of time when editing multicamera shots, relinking media files, trimming clips precisely and so on—which, ostensibly, most home video footage won't call upon.
 
-Prosumer camera codecs like AVCHD and XAVC-S write H.264 video in MP4 containers. H.264 is a compressed video format originally intended for delivery, not editing, but its role has slowly evovled. Prosumer cameras really benefit from the compression because then 4 hrs of 4K can still fit on a 128 GB SD card.
+Prosumer camera codecs like AVCHD and XAVC-S write H.264 video in MP4 containers. H.264 is a compressed video format originally intended for delivery, not editing, but its role has slowly evolved. Prosumer cameras really benefit from the compression because then 4 hrs of 4K can still fit on a 128 GB SD card.
 
 MP4 containers don't traditionally support timecode which may help to explain why the recent trend in dropping timecode. Although [Apple supports timecode in MP4 containers](https://developer.apple.com/library/mac/technotes/tn2174/_index.html) since 2013, [other software may exhibit side-effects reading timecode-rich MP4s](https://www.digitalrebellion.com/blog/posts/how_to_create_timecode_tracks_for_h.264_movies_in_compressor) if they do not expect it.
 
@@ -20,11 +20,17 @@ MP4 containers don't traditionally support timecode which may help to explain wh
 
 MOV containers are like the Swiss army knife of containers. Unlike MP4, MOV supports timecode tracks full out, and rewrapping from MP4 to MOV can be done in a number of ways! But which are robust and which go bust?
 
-### Timecode Generating Software Comparison
-
 Short answer: EditReady is the most robust rewrapper out there, and can even be scripted from the command line. Read on for the details and why others didn't cut it (no pun intended).
 
-Technically, the following tests were performed using AVCHD files already in MOV format as imported on a MBP with Photos. They however, did not have timecode.
+### The Setup
+
+The following tests were performed using AVCHD files already in MOV format as imported on a MBP with Photos. They however, did not have timecode.
+
+After timecode was added to the MOV container, the file was opened with QuickTime Player 7 and Compressor 4 to verify timecode. The file was then transcoded with Compressor to check its integrity. 
+
+### The "B" List
+
+Sometimes "B" is generous.
 
 #### ffmpeg Woes
 
@@ -32,31 +38,37 @@ ffmpeg is the open source king for video compression. Many programs like Handbra
 
 `ffmpeg -i Day_1.mov -codec copy -timecode 04:25:50.00 Day_1.ffmpeg.mov`
 
-Note: timecode seems to be automatically calculated based on the framerate of the video track. Also, by default, ffmpeg only preserves 1 video and 1 audio track.
+Note: the timecode seems to be automatically calculated based on the framerate of the video track. Also, by default, ffmpeg only preserves 1 video and 1 audio track.
 
 While ffmpeg successfully added timecode, the resulting file was a disaster for editing. The file systematically quits @ 20 seconds on any render in Compressor, suggesting some kind of container corruption.
 
 ![Timecode added by ffmpeg fails to render with Compressor]({% asset timecode-ffmpeg-compressor-fail.png @path %})
-![]({% asset timecode-ffmpeg-compressor42-scrubbing-fail.png @path %})
 
-Furthermore, although the file did play in QuickTime Player X and QuickTime Player 7, scrubbing with the playhead sometimes caused the application to crash! The first frame also often shows as black—note in particular the strange, red vertical lines in Compressor's preview window!
+Furthermore, although the file did play in QuickTime Player X and QuickTime Player 7, **scrubbing the playhead sometimes caused the application to crash**!
 
 ![Timecode added by ffmpeg crashes during QT7 scrubbing]({% asset timecode-ffmpeg-qt7-scrubbing-fail.png @path %})
+
+The file crashed when scrubbing in Compressor as well.
+
+![Cannot scrub ffmped rewrapped file]({% asset timecode-ffmpeg-compressor42-scrubbing-fail.png @path %})
+
+Lastly, the first frame is often black. Note in particular the strange, red vertical lines in Compressor's preview window.
+
 ![Black opening frame in Compressor]({% asset timecode-ffmpeg-compressor-black-screen.png @path %})
 
 In a way, ffmpeg is a video delivery king, but perhaps not an editing king.
 
 #### VideoToolShed MP4 to QuickTime
 
-[Videotoolshed's MP4 to QuickTime](http://www.videotoolshed.com/product/66/mp4-to-quicktime/3) was another contender, but starting from version 6 the program uses ffmpeg under the hood, to increase compatibility with other programs. So it too exhibits the same problems.
+[Videotoolshed's MP4 to QuickTime](http://www.videotoolshed.com/product/66/mp4-to-quicktime/3) was another contender, but starting from version 6 the program uses ffmpeg under the hood, to increase compatibility with other programs. So it too exhibits the same problems and failed to render with Compressor.
 
-Also, the GUI is very rough around the edges:
+![Timecode added by mp4toqt61 fails to render with Compressor]({% asset timecode-mp4toqt61-compressor-fail.png @path %})
+
+Also, the VideoToolShed GUI is very rough around the edges:
 
 * Only detects MP4 files. So to add timecode to existing MOVs, the files first have to be renamed to trick the program to open them.
 * When processing the program won't come back to the foreground. Hovering with the mouse shows the little color pinwheel...
 * Files also can't be dragged and dropped, etc.
-
-![Timecode added by mp4toqt61 fails to render with Compressor]({% asset timecode-mp4toqt61-compressor-fail.png @path %})
 
 So ya, the little things—and some big things as well.
 
@@ -74,13 +86,16 @@ Moreover, CinePlay's Export window offers a rewrapping option ([see their own bl
 
 ![]({% asset cineplay-rewrap-export.png @path %})
 
-The rewrapped MOV itself appears to have full structural integrity. No funny glitches and crashes when processing the file. It does however start with a black image sometimes—but unlike the ffmpeg one, this doesn't show any funny red lines in Compressor's preview window. It also passes the Compressor test: no crash at the lovely 20 second mark.
+The rewrapped MOV itself appears to have full structural integrity. No funny glitches and crashes when processing the file. It does however start with a black image sometimes—but unlike the ffmpeg one, this doesn't show any funny red lines in Compressor's preview window.
 
 ![]({% asset cineplay-black-screen-timecode-starts-at-zero.png @path %})
 ![]({% asset cineplay-compressor-black-screen.png @path %})
+
+It also passes the Compressor test: no crash at the lovely 20 second mark.
+
 ![]({% asset cineplay-compressor-success.png @path %})
 
-The rewrapped MOV is also roughly the same size, within a few bytes.
+The rewrapped MOV is roughly the same size, within a few bytes.
 
 ![]({% asset timecode-test-original-stats.png @path %})
 ![]({% asset cineplay-rewrap-stats.png @path %})
@@ -104,7 +119,7 @@ Another hiccup was ... the Compressor render never completed!
 
 Turns out the original movie file I inherited was somehow corrupt. (Photos probably isn't the best tool to import AVCHD footage.) Not CinePlay's fault at all but it does knock it out of first place!
 
-#### EditReady Lives up to Its Name
+### EditReady Lives up to Its Name
 
 [EditReady](http://www.divergentmedia.com/editready) is a champion at rewrapping footage. Divergent Media makes excellent products and their customer service is bar none. When I had written regarding the ghost render, Colin at Divergent Media explained:
 
@@ -118,15 +133,13 @@ EditReady's rewrap affected the FCP X date at first, but turns out it was becaus
 
 ![]({% asset rewrap-editready-file-dates.png @path %})
 
-EditReady's super helpful Metadata window calls this to your attention and allows you to select and/or set which date you would like.
+EditReady's Metadata window calls this to your attention and allows you to select and/or set which date you would like.
 
-![]({% asset editready-metadata-date-conflict-window.png @path %})
-![]({% asset editready-metadata-date-resolved-window.png @path %})
+![]({% asset editready-metadata-date-conflict-resolution.gif @path %})
 
-As you can see the original file does not have any timecode. By default, EditReady will preserve timecode if present, but not generate it if absent on the original. However, clicking the + icon in the upper right allows one to add a timecode tag as well! (By default, if the field is blank, timecode will start at 00:00:00:00).
+As you can see the original file does not have any timecode. By default, EditReady will preserve timecode if present, but not generate it if absent on the original. However, clicking the + icon in the upper right allows one to add a timecode tag as well! (By default, if the field is blank, timecode will start at `00:00:00:00`).
 
-![]({% asset editready-metadata-timecode-add.png @path %})
-![]({% asset editready-metadata-timecode-add-result.png @path %})
+![]({% asset editready-metadata-add-timecode.gif @path %})
 
 The size of the rewrapped, timecode footage is the same within a few bytes. Strangely enough, QuickTime Player 7 did crash a few times when scrubbing both.
 
