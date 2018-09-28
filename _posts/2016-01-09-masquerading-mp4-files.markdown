@@ -1,10 +1,13 @@
 ---
 layout: post
-title:  "Renaming .MP4 files to .M4V to open with QT7"
-subtitle: "Masquerading MP4 Files from Sony's XAVC-S format"
+title:  "Renaming MP4 to M4V to open with QT7 & Compressor"
+subtitle: "Masquerading MP4 files from Sony's XAVC-S format"
 date:   2016-01-09 09:05:26 -0500
 categories: codecs
 ---
+
+*[Updated September 28, 2018 wording changes for clarity.]*
+
 * TOC
 {:toc}
 
@@ -12,10 +15,9 @@ categories: codecs
 
 For a long time, Sony's XAVC-S codec was completely a mystery to me. It was the new format the Sony CX900 and AX100 use, and when those cameras originally shipped, the files could not be edited natively with FCP X. ([Version 10.2 added that functionality](https://support.apple.com/en-us/HT202252){:target="_blank"}.)
 
-What was particularly perplexing to me was after the software update, QuickTime Player X and FCP X would open the files, but QuickTime Player 7 and Compressor 4.2 wouldn't. QT7 was understandably written on legacy 32-bit frameworks[^1], but shouldn't Compressor 4.2 use the same new 64-bit frameworks (AVFoundation, CoreMediaIO, etc.) that QT X and FCP X used?
+What was particularly perplexing was after the software update, QuickTime Player X and FCP X would open the files, but QuickTime Player 7 and Compressor 4.2 wouldn't. QT7 was understandably written on legacy 32-bit frameworks[^1], but shouldn't Compressor 4.2 use the same new 64-bit frameworks (AVFoundation, CoreMediaIO, etc.) that QT X and FCP X used?
 
 ![Sony XAVC-S MP4 file unrecognized by QuickTime Player 7]({% asset xavcs-failure-qt7-open.png @path %})
-![Sony XAVC-S MP4 file unrecognized by MPEG Streamclip]({% asset xavcs-failure-streamclip-open @path %})
 ![MPEG Streamclip further complains on Open Anyway]({% asset xavcs-failure-streamclip-open-anyway @path %})
 ![Sony XAVC-S MP4 file unrecognized by Compressor 4]({% asset xavcs-failure-compressor4-open @path %})
 
@@ -27,13 +29,13 @@ Indeed that's the case!
 
 The fix? Rename the extension from `mp4` to `m4v`.
 
-Sure enough, now QT7, Compressor 4, MPEG Streamclip all open the file once again. Hooray!
+Now QT7, Compressor 4, and MPEG Streamclip all open the file once again. Hooray!
 
 ![Sony XAVC-S as M4V successfully recognized by QuickTime Player 7]({% asset xavcs-success-qt7-m4v.png @path %})
 ![Sony XAVC-S as M4V successfully recognized by MPEG Streamclip]({% asset xavcs-success-streamclip-m4v.png @path %})
 ![Sony XAVC-S as M4V successfully recognized by Compressor 4]({% asset xavcs-success-compressor4-m4v.png @path %})
 
-This means Final Cut Pro 7 will open such files now too!
+This means Final Cut Pro 7 will open such renamed files too, like QT7.
 
 ### But Why?
 
