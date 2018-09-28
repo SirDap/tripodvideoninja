@@ -11,7 +11,7 @@ module ReadingTimeFilter
     # print words,"\n"
 
     # Average reading words per minute.
-    words_per_minute = 75
+    words_per_minute = 125
 
     # Load configuration directive.
     config = @context.registers[:site].config["reading_time"]
