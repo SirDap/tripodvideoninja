@@ -12,7 +12,12 @@ module Jekyll
     end
 
     def render(context)
-      %(<iframe width="#{@@width}" height="#{@@height}" src="https://player.vimeo.com/video/#{@id}" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>)
+      %(<div class="videoWrapper">
+      <iframe width="#{@@width}" height="#{@@height}" 
+      src="https://player.vimeo.com/video/#{@id}" 
+      frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen>
+      </iframe>
+      </div>)
     end
   end
 end

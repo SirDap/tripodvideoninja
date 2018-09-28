@@ -33,11 +33,7 @@ Forums at Telestream suggest HDV video always lags uncompressed video/audio stre
 
 Here is an example of the AV sync issue. The stationary center cam is HDV via FireWire and the panning closeup cam is uncompressed HDMI via a Blackmagic Mini Recorder. Audio is not switched and is always taken from the closeup camera (fed from the mixer). Note how the center cam's video is approximately 0.5 sec behind the audio—i.e. the time for the data to decompress!!
 
-<div class="videoWrapper">
-<iframe src="https://player.vimeo.com/video/150565246?title=0&byline=0" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-</div>
-
-<br />
+{% vimeo 150565246 %}
 
 "Is it possible to delay the video of one source so that it's in sync with the other?" ~~Although Wirecast allows for an audio delay offset, there's no "source offset" option. One way might be to pipe the video through VLC to timeshift it with the play/pause button[^6], but that's not precise enough here to say the least for starters.~~ [Update] As of [Wirecast 7.0](https://telestreamforum.forumbee.com/t/h48sty/wirecast-7-0-released-june-29-2016){:target="_blank"}, sources now have a separate video delay feature. It would probably take some tuning though to get it right, and still might not be worth it since the decompression would still result in higher CPU usage.
 
