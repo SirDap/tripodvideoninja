@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Wirecast Record to Disk Best Practices
-subtitle: Livestreaming lessons relearned
+title: Livestream Lessons Learned, Again
+subtitle: Record to Disk Best Practices
 date: 2018-06-28 16:22:00 Z
 categories: livestream
 ---
@@ -42,7 +42,7 @@ Here are the recommendations from Craig over on a post[^1] at the Wirecast forum
 
 Interestingly, another forum post[^2] suggests USB3 can be temperamental. One person had dropped frames from a bad cable!
 
-### Why it Worked Before
+### Why It Worked Last Month
 
 Back in May 2018 (during the All-Night concert), I was connected via Thunderbolt to a RAID 0 striped LaCie 4 TB drive. Recording the livestream + HDV camera via Wirecast worked just fine.
 
