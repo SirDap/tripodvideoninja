@@ -35,17 +35,23 @@ I used Adobe After Effects CC 2018 and rendered out to ProRes 422.
 Notice the difference in the clarity (text at top, violin bow) and richness of color (red blouse). This is *even with* the inherent compression in the screenshot.
 
 <script>
-function change_image() {
-    var url = document.getElementById('Change_Image').src;
-    if (url.includes("with-plugin")) {
-        document.getElementById('Change_Image').src = "{% asset resizing-prores-original.png @path %}";
-    } else {
-        document.getElementById('Change_Image').src = "{% asset resizing-prores-with-plugin.png @path %}";
+    function Switch() {
+        var index = document.getElementById("pic1").style.display;
+        if (index == "none") {
+            document.getElementById("pic1").style.display = "initial";
+            document.getElementById("pic2").style.display = "none";
+        } else {
+            document.getElementById("pic1").style.display = "none";
+            document.getElementById("pic2").style.display = "initial";
+        }
     }
-}
-setInterval(change_image, 800);
+    setInterval(Switch, 800);
 </script>
-<img id="Change_Image" src="{% asset resizing-prores-original.png @path %}" />
+
+<div>
+    <img id="pic1" src="{% asset resizing-prores-original.png @path %}" />
+    <img id="pic2" src="{% asset resizing-prores-with-plugin.png @path %}" style="display: none;" />
+</div>
 
 #### Running Video
 
