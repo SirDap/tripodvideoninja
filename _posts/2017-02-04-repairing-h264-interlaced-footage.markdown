@@ -96,12 +96,7 @@ Compressor however is the clear champion! In particular, the only passing Compre
 Final confirmation with a 11 sec, 9 MB segment instead.
 
 **Original** *especially note the combing during fast hand movements*
-<div class="videoWrapper">
-<video controls width="640" height="360" preload="metadata" poster="{% asset deinterlace-clip2-better-retiming-poster.png @path %}">
-  <source src="{% b2 1080iHDVSavedAs720pH264Clip2.mov %}" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-</div>
+{%b2video 1080iHDVSavedAs720pH264Clip2.mov|deinterlace-clip2-better-retiming-poster.png %}
 
 | Output file                  | Size | Program used | Result |
 |:-----------------------------|:-----|:-------------|:-------|
@@ -113,12 +108,7 @@ Your browser does not support the video tag.
 It's hard for me to tell if there's an appreciable difference between the two retiming settings, but for sure the combing is no more!
 
 **Repaired (Up to 4K Better Retiming)** *look Ma, no lines!*
-<div class="videoWrapper">
-<video controls width="640" height="360" preload="metadata" poster="{% asset deinterlace-clip2-orig-poster.png @path %}">
-  <source src="{% b2 1080iHDVSavedAs720pH264Clip2-Up-to-4K-Better-Retiming.mov %}" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-</div>
+{%b2video 1080iHDVSavedAs720pH264Clip2-Up-to-4K-Better-Retiming.mov|deinterlace-clip2-orig-poster.png %}
 
 So at the end of the day, **forcing Compressor's input field order *and* exporting using Apple's H.264 codec works like a champ**.
 

@@ -8,8 +8,6 @@ module Jekyll
       # strip leading and trailing spaces (throws off URL)
       @text = text.strip
       @b2repo = "https://f000.backblazeb2.com/file/TripodVideoNinja"
-      # the local storage folder
-      @vidfolder="_assets/downloads"
     end
 
     def render(context)

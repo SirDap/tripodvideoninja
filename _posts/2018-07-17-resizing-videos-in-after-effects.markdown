@@ -63,13 +63,7 @@ There's definitely some compression in the H.264 render (for example in the colo
 
 *Note: if you're hard to impress, you'll definitely be underwhelmed when viewing this video at smaller screen resolutions. Be sure your display resolution > 1080p and use the HTML viewer to maximize it fullscreen.*
 
-
-<div class="videoWrapper">
-<video controls width="640" height="360" preload="metadata" poster="{% asset resizing-prores-poster.png @path %}">
-  <source src="{% b2 Instant4KPlugin-Before480After1080-H264.mov %}" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-</div>
+{% b2video Instant4KPlugin-Before480After1080-H264.mov|resizing-prores-poster.png %}
 
 There's nothing like looking at the original uncompressed footage though, so feel free to [download the raw ProRes 422 videos]({% b2 Instant4KPlugin-ProRes422-Resizing-Experiments.zip %}) to do your own comparison (190 MB).
 
