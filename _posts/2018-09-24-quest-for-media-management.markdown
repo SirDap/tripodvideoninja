@@ -6,7 +6,7 @@ date:   2018-09-24 11:31:32 Z
 categories: storage
 ---
 
-*[Note: this article was originally drafted in January 2016. As you can see, it has been quite a quest...]*
+*[This article was originally drafted in January 2016. As you can see, it has been quite a quest...]*
 
 * TOC
 {:toc}
@@ -62,7 +62,7 @@ As a cloud storage user and road warrior, I however want to have the ability to 
 
 Your use case may vary, so the best programs of both types will still be considered below.
 
-### Three Kids on the Block
+### Two Kids on the Block
 
 #### Kyno (File-based)
 
@@ -76,30 +76,13 @@ Kyno doesn't lock its metadata inside itself offers FCP X and Premiere exports. 
 
 Kyno's pricing starts at $159. There is no subscription, but after 1 year you have you pay for another year of software updates.
 
-
-
-#### Silverstack (Catalog-based)
-
-[Silverstack](http://pomfort.com/silverstack/overview.html) by Pomfort is a swiss-army knife for media management and *markets* itself as that.
-
-Silverstack provides checksum-based card offloading, ProRes transcoding, and other features like audio syncing, report genreation, and so on. Like Kyno, it's the combination of many programs put together.
-
-The sheer number of formats Silverstack exports is mind boggling (see them in the GIF below). They definitely seem to be targeting professional broadcasting stations and major feature films. It's really nice how the trial allows you to download a sample library with media assets pre-populated.
-
-Silverstack dropped the ball for me when it **did not export its tags as FCP X keywords**. The program exports metadata like camera and labels to FCP X, but not tags—hopefully yet.
-
-![Exporting FCP XML with Silverstack]({% asset metadata-silverstack-export.gif @path %}) 
-
-That's alright for me, since their yearly subscription starts at $399. 🤤
-
 #### KeyFlow Pro (Catalog-based)
 
-KeyFlow Pro blew me out of the water. It definitely seems like a more-mature sibling of Kyno, and is particularly Mac-centric.
+KeyFlow Pro blew me out of the water. It definitely seems like a more-mature sibling of Kyno, and is particularly Mac-centric supporting popular NLE exports.
 
 * Clean and modern interface, indicates active product development. It's received a lot of critical acclaim too.[^11] [^12] [^13]
 * Roundtrips with FCP X like a boss. *Drag and drop from KeyFlow to FCP X and back.* ![KeyFlow Pro's Integration with FCP X]({% asset metadata-keyflowpro-1.png @path %})
-* It can open FCP X libraries directly too. 
-* For the Adobe folks, it supports Premiere exports.
+* For the Adobe folks, it supports Premiere exports. It can open FCP X libraries directly too.
 * Subtitle import with SRT ![KeyFlow Pro's Integration with FCP X]({% asset metadata-keyflowpro-2.png @path %})
 * Generate proxy footage so you can take low res version of video files on the road!
   ![KeyFlow Pro Encoder Options]({% asset keyflowpro-encoder-options.png @path %})
@@ -196,6 +179,20 @@ Hedge is a modern, media offloading application. Its polished UI is really beaut
 Hedge has the ability to write MHL metadata files on export (inspired by Silverstack). It does not have a browser for viewing footage, however, it does come with a [Spotlight plugin that will read the MHL](https://medium.hedgeformac.com/why-we-need-a-sidecar-for-offloads-4c5d2c783d5d) plaintext files for searching metadata.
 
 Hedge's main limitation as a media manager is it only tags media it imports and **cannot tag existing footage**.
+
+#### Silverstack (Catalog-based)
+
+[Silverstack](http://pomfort.com/silverstack/overview.html) by Pomfort is a swiss-army knife for media management and *markets* itself as that. It however fell short for a few reasons.
+
+Silverstack provides checksum-based card offloading, ProRes transcoding, and other features like audio syncing, report genreation, and so on. Like Kyno, it's the combination of many programs put together.
+
+The sheer number of formats Silverstack exports is mind boggling (see them in the GIF below). They definitely seem to be targeting professional broadcasting stations and major feature films. It's really nice how the trial allows you to download a sample library with media assets pre-populated.
+
+Silverstack dropped the ball for me when it **did not export its tags as FCP X keywords**. The program exports metadata like camera and labels to FCP X, but not tags—hopefully yet.
+
+![Exporting FCP XML with Silverstack]({% asset metadata-silverstack-export.gif @path %}) 
+
+That's alright for me, since their yearly subscription starts at $399. 🤤
 
 #### TagSpaces (File-based)
 
