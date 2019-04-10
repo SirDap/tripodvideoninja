@@ -10,40 +10,67 @@ permalink: /gear/
 
 ### Inventory
 
-#### Hardware
-
-* [2007 MacBook Pro 2,2](http://www.everymac.com/systems/apple/macbook_pro/specs/macbook-pro-core-2-duo-2.16-15-specs.html)
+#### Computers
+* [~~2007 MacBook Pro 2,2~~](http://www.everymac.com/systems/apple/macbook_pro/specs/macbook-pro-core-2-duo-2.16-15-specs.html)
   * 15.4" Matte Screen
   * 2.16 GHz Intel Core 2 Duo
   * ATI Radeon X1600 128 MB
   * Sold on 9/2015. Firewire ports starting acting buggy when recording (overheating issue), SSD compatibility was also limited
 * [2012 MacBook Pro 9,1](http://www.everymac.com/systems/apple/macbook_pro/specs/macbook-pro-core-i7-2.6-15-mid-2012-unibody-usb3-specs.html)
   * 15.4" Matte Screen
-  * 2.6 GHz Intel Core i7
+  * 2.6 GHz Quad Core Intel Core i7
   * NVIDIA GeForce GT 650M 1024 MB
   * 8 GB 1600 MHz DDR3 RAM
   * [1TB Samsung 840 EVO SSD](http://www.samsung.com/us/support/owners/product/MZ-7TE1T0BW)
-  * Only limitation of this guy is 1 thunderbolt port
-* [2014 MacBookAir6,2](http://www.everymac.com/systems/apple/macbook-air/specs/macbook-air-core-i7-1.7-13-early-2014-specs.html)
+  * This is the main workhorse and road warrior. Only limitation of this guy is the 1 thunderbolt port
+* [2014 MacBook Air 6,2](http://www.everymac.com/systems/apple/macbook-air/specs/macbook-air-core-i7-1.7-13-early-2014-specs.html)
   * 13.3" Screen
   * 1.7 GHz Intel Core i7
   * Intel HD Graphics 5000
   * (2) USB 3.0, (1) Thunderbolt, (1) SD Card, Headphone Out
-* Sony HDR-FX7 HDV camera
+  * "Everything else" laptop, for checking YouTube streams, notes, etc.
+* [2011 iMac 11,2](https://everymac.com/systems/apple/imac/specs/imac-core-i5-2.7-27-inch-aluminum-mid-2011-thunderbolt-specs.html)
+  * 27" Screen
+  * 2.7 Ghz Quad Core Intel Core i5
+  * AMD Radeon HD 6770M 512 MB
+  * 16 GB 1333 MHz DDR3 RAM (upgraded after)
+  * This machine is ideal for ProRes multicam editing and AE renders, but is far slower than the 2012 MBP for final H264 renders
+
+
+#### Hardware
+
+* [Sony HDR-FX7 HDV 1080i camera](https://www.bhphotovideo.com/c/product/459129-REG/Sony_HDRFX7_HDR_FX7_3CMOS_HDV_1080i.html)
+  * Really great for well lit venues, 20x optical zoom
   * 15' Firewire cable to record to disk rather than MiniDV tapes
+  * Still used for livestreaming and/or a zoomed out B cam shot, because the quality loss is less noticeable
+  * Reds are a little dark
 * [Sony FDR-AX100 4K camera](http://www.sony.com/electronics/handycam-camcorders/fdr-ax100)
-  * Only limitation is the inability to pipe 4K via HDMI _while_ recording to SD card, so have to switch to HD when doing live stream + recording. However, it shouldn't matter because in 4K mode the camera doesn't zoom in as far as in 1080 mode—it's using the same sensor.
-* [JuicedLink CX231]
-  * To input mic/line level XLR inputs into either camera as a 3.5" mic input
+  * Large 1" sensor, fantastic quality color with great low light tolerance
+  * 12x optical zoom, 18x "Clear Image Zoom" at 4K (but cannot do face detection then)
+  * Unable to pipe 4K via HDMI _while_ recording to SD card, so have to switch to HD when doing live stream + recording. Bandwidth issues I assume.
+  * In 4K mode the camera doesn't zoom in as far as in 1080 HD mode—it's using the same sensor.
+  * No built-in histogram viewer (feed HDMI to your own scopes, see below)
+* [JuicedLink CX231](https://www.bhphotovideo.com/c/product/563070-REG/juicedLink_CX231_CX231_Audio_Mixer_and.html)
+  * To feed mic/line level XLR inputs into the camera directly as a 3.5" mic stereo input
+  * JuicedLink has since gone out of business, [possible reasons](https://www.reddit.com/r/videography/comments/6xugk8/juicedlink_is_gone/)
 * [Blackmagic UltraStudio Mini Recorder Thunderbolt](https://www.blackmagicdesign.com/products/ultrastudiothunderbolt/techspecs/W-DLUS-04)
-  * Used as HDMI input for live streams. Thunderbolt endpoint, cannot daisy chain (maybe some technical limitation?)
-* Blackmagic Intensity Pro Shuttle USB 3.0
-  * Can also be used as HDMI input for live streams. Provides additional composite and component input for capturing from older VHS tapes, etc. for archiving footage
+  * Used as HDMI input for live streams
+  * Also used to check cameras for proper exposure, using ScopeBox
+  * Thunderbolt endpoint, cannot daisy chain (maybe some technical limitation?)
+* [Blackmagic Intensity Pro Shuttle USB 3.0](https://www.blackmagicdesign.com/products/intensity)
+  * Provides additional composite and component input for capturing from older VHS tapes, etc. for archiving footage
+  * Can also be used as an additional HDMI input for live streams/scopes
+  * Just wish it had a power LED
 * [Manfrotto 190XPROB Tripod](https://www.amazon.com/Manfrotto-190XPROB-3-Section-Discontinued-Manufacturer/dp/B000N7VPRW)
 * [Manfrotto 290 Tripod MT294A3](https://www.manfrotto.us/294-aluminum-3-section-tripod)
   * This newer tripod is slightly longer/taller than the 190XPROB and doesn't normally fit in a carry-on while traveling whereas the 190XPROB does.
-* Manfrotto 701HDV Fluid Head
-* Manfrotto MVH502AH Fluid Head
+* [Manfrotto 701HDV Pro Mini Fluid Head](https://www.bhphotovideo.com/bnh/controller/home?O=productlist.jsp&A=details&Q=&sku=556159&is=REG&fromDisList=y)
+  * Smaller, lighter fluid head
+  * 8.8 lbs capacity
+* [Manfrotto MVH502AH Pro Fluid Head](https://www.bhphotovideo.com/c/product/827210-REG/Manfrotto_MVH502AH_75Mm_Flat_Head.html)
+  * Larger, heavier fluid head 
+  * Large plate for when the camera has various shoes attached to it that otherwise may cause it to tip more easily
+  * 15.4 lbs capacity
 * (2) Manfrotto LANC Remote Adapter MVR901EPLA To 701HDV Head (custom eBay)
 * (2) Manfrotto 519LV Telescoping Pan Handle
 * (1) Manfrotto 502HLV Pan Bar
@@ -52,8 +79,13 @@ permalink: /gear/
 * Samson S-convert -10dBV to +4dBu Converter
   * Perfect for plugging laptop/iPhone sound into a mic send
 * (4) Harrison FMOD 12dB Inline RCA Attenuator 900087
-  * These RCA attenuators are vital for recording off prosumer -10dB REC/TAPE OUT feeds from the mixer. Otherwise, transients in the 0-12dB range on the mixer will not have enough headroom to record
-* (2) Monoprice Premium 2 RCA M/M 22AWG Cable 15' (max suggested cable run is 30 meters)
+  * These RCA attenuators are vital for recording off prosumer -10dB REC/TAPE OUT feeds from a mixer into a portable audio recorder like the Zoom H1. Otherwise, transients in the 0-12dB range on the mixer will not have enough headroom to record
+* [X-Rite Color Checker Passport Video](https://www.xrite.com/categories/calibration-profiling/colorchecker-passport-video)
+* [X-Rite Color Checker Classic](https://www.xrite.com/categories/calibration-profiling/colorchecker-classic)
+  * Comes with a nice large white balance card too
+* [VariZoom VZ-Rock](https://www.varizoom.com/product/vzrock/)
+  * Absolute must for smooth zooms and pans
+  * This connects directly in the Sony FX7 but requires additional adapters for the Sony AX100
 
 #### Software
 * Final Cut Pro 7
