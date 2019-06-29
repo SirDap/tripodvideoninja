@@ -135,7 +135,7 @@ Happy gardening! 🌱
 
 ### Footnotes
 
-[^1]: Is there a formula to decide the best ratio of CPU cores to Seeds and Gardeners? https://www.mekajiki.com/rendergarden/faq/
-[^2]: Quick Start and Submitting a Render were the two main important videos I watched. https://www.mekajiki.com/rendergarden/tutorials/
+[^1]: Is there a formula to decide the best ratio of CPU cores to Seeds and Gardeners? <https://www.mekajiki.com/rendergarden/faq/>
+[^2]: Quick Start and Submitting a Render were the two main important videos I watched. <https://www.mekajiki.com/rendergarden/tutorials/>
 [^3]: In particular, I used Red Giant's Deinterlace plugin and the Deartificater plugin, the latter of which really increases render time.
-[^4]: Yes, interlaced H.264 is a thing. See https://en.wikipedia.org/wiki/Blu-ray#Video for the full list of supported rates. The footage was from a dance recital, and 1080p is only possible at 24 fps. The original authors probably captured it at the higher frame rate for smoother motion.
+[^4]: Yes, interlaced H.264 is a thing. See <https://en.wikipedia.org/wiki/Blu-ray#Video> for the full list of supported rates. The footage was from a dance recital, and 1080p is only possible at 24 fps. The original authors probably captured it at the higher frame rate for smoother motion.
