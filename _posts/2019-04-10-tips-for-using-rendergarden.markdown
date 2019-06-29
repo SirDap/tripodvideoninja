@@ -16,7 +16,7 @@ That got me searching for a way to multithread After Effects renders.
 
 ### Hello RenderGarden
 
-RenderGarden is a neat way to chunk and multithread renders from After Effects. It invokes `aerender` which is a headless way of running After Effects. It costs $99 and comes with a 7 day trial.
+RenderGarden by Mekajiki is a neat way to chunk and multithread renders from After Effects. It invokes `aerender` which is a headless way of running After Effects. It costs $99 and comes with a 7 day trial.
 
 In my case I had two computers (the MacBook Pro and the iMac) with the project files accessible via a Synology NAS. I installed After Effects on both machines and procured a render-only license from Red Giant via email (less than one business day) to use the iMac as a headless render node.
 
@@ -26,13 +26,13 @@ RenderGarden's getting started videos are quite helpful[^2] and got me up and ru
 
 * A **seed is an atomic unit** of work. The number of seeds a composition is broken up into is set when generating the script files from After Effects. It cannot be changed afterwards.
 * **Cancelled renders** that are later re-seeded/restarted **do not pickup from where they left off**. The file segment is overwritten and starts over from the beginning (the log file is appended to though).
-* Having the **Recycle Bin feature on the Synology** is helpful in the event of recovering accidentally deleted segements.
+* Having the **Recycle Bin feature on the Synology** is helpful in the event of recovering accidentally deleted segments.
 * If the **Launch Gardener window** doesn't appear after launching the app, it is **probably hidden behind other windows**. Use Expose to reveal it, or click on the Python launcher in the dock. <br />![]({% asset rendergarden-2.png @path %})
-* The Launch Gardener window has **four types of Gardener nodes**, which I couldn't find explanations of.  <br />![]({% asset rendergarden-1.png @path %})
+* The Launch Gardener window has **four types of Gardener nodes**.  <br />![]({% asset rendergarden-1.png @path %})
   * The `ae` node type is for actually running After Effects `aerender` in the background.
   * The `ffmpeg` node type is only used for post-processing conversion to H.264, etc. and the `combine` node is to combine segments together. This was slightly confusing at first because RenderGarden technically also uses FFmpeg to stitch movie segments together, as noted in the documentation.
   * The `notify` node type is for some type of notification system, which I didn't use.
-* The folder that you select for the render node is essentially **the Gardener watch folder**. It will continually scan it for work, and it can either be the parent RenderGarden folder or that of an individual composition.
+* The folder that you select for the `ae` node is essentially **the Gardener watch folder**. It will continually scan it for work, and it can either be the parent RenderGarden folder or that of an individual composition.
 * I find it good practice to only launch `ae` type nodes and wait for them all to complete before running `combine` nodes. That way I can **inspect logs and file sizes and preview the segments for issues before combining** them.
 * **For network machines** only running Gardener nodes, **licensing After Effects is usually not necessary**. As long as the composition and render are not using proprietary codecs first like MPEG-2 or AC3 audio `aerender` will run on the network node and the Adobe login is only needed on the primary machine. Double check the full list of formats first on this [Adobe blog post](https://blogs.adobe.com/creativecloud/codecs-and-the-render-engine-in-after-effects-cs6/?segment=dva).
 
@@ -40,7 +40,7 @@ RenderGarden's getting started videos are quite helpful[^2] and got me up and ru
 
 Since I was running renders on both the MacBook Pro (MBP) as well as the iMac, I was curious how the two would compare in terms of speed and CPU usuage. Both compositions (A and B) where seeded to eight segments.
 
-The following table is sorted by End Time ascending. As you can see both the Quad Core iMac i5 and Quad Core MBP i7 MBP have an ideal throughput of roughly 20 frames/minute.
+The following table is sorted by End Time ascending. As you can see both the Quad Core iMac i5 and Quad Core MBP i7 have an ideal throughput of roughly 20 frames/minute.
 
 | Comp | Seed | Machine | Frames   Start | Frames   End | Num   Frames | Elapsed   Mins | Frames/Min  | End   Time   | Graceful   End |
 | ---- | ---- | ------- | -------------- | ------------ | ------------ | -------------- | ----------- | ------------ | -------------- |
@@ -64,17 +64,19 @@ The following table is sorted by End Time ascending. As you can see both the Qua
 | B    | 5    | MBP     | 85120          | 106399       | 21280        | 1021           | 20.84231146 | 4/10/19 3:25 | FALSE          |
 | B    | 6    | MBP     | 106400         | 127679       | 21280        | 1082           | 19.66728281 | 4/10/19 4:27 | FALSE          |
 
+What are "Graceful" renders? Read on...
+
 #### Some Idle CPU is Good
 
 I initially started with the RenderGarden recommendation of no more Gardeners than the number of physical cores[^1], which is a maximum of four on each machines. 
 
 ![]({% asset rendergarden-5-mbp.png @path %})
 
-However I saw in iStat Menus on the MacBook Pro that there was still roughly 20% idle CPU, so I added an additional fifth node...
+However I saw via iStat Menus that the MacBook Pro had still roughly 20% idle CPU, so I added an additional fifth node...
 
 ![]({% asset rendergarden-6-mbp.png @path %})
 
-Sure enough, the idle CPU was now less than 10%. However, as the table showed above, doing so dropped the throughput drops to 13 frames/minute, which even with five processes is $100 - \frac{13*5}{20*4} = 20 ​$ percent slower. I later went back to three/four nodes max and the throughput went back to 20 frames/minute.
+Sure enough, the idle CPU was now less than 10%. However, as the table showed above, doing so dropped the throughput drops to 13 frames/minute, which even with five processes is `100 - (13*5)/(20*4) =` 20 percent slower. I later went back to three-four nodes max, and the throughput stabilized to 20 frames/minute.
 
 #### iMac i5 vs MacBook Pro i7
 
@@ -84,9 +86,11 @@ To my delight, the iMac's older i5 processor was more than enough to keep pace w
 
 Complete specs of each machine are listed on the [Gear](/gear/) page.
 
-### Investigating the Un-graceful Completions
+### Adobe Licensing User Error
 
-The log file for a successful `ae` segment render end like the following.
+*Shout out to the folks at Mekajiki who even reached out to Adobe to help root cause this issue. Now that's customer support!*
+
+The log file for a successful `ae` segment render looks like the following.
 
 ```
 PROGRESS:  1;34;40;09 (21280): 0 Seconds
@@ -107,21 +111,25 @@ RenderGarden end 2019-04-07 09:03:01
 
 ```
 
-Sometimes segments completed and the log would say `Finished composition`, but nothing else would be written. The Terminal window would just stay there without writing `Total Time Elapsed ... RENDER COMPLETE ...` etc. On some rare occassions, the filename also didn't rename from `rendering_` to `complete_`.
+The un-graceful renders however would also complete with `Finished composition`, but nothing else would be written. The Terminal window would just stay there without writing `Total Time Elapsed ... RENDER COMPLETE ...` etc. On some rare occassions, the filename also didn't rename from `rendering_` to `complete_`.
 
-I also saw these strange popup windows on my screen at first but didn't know what they meant.
+I started to see these strange popup windows on the MBP but didn't know what they meant at first.
 
 ![]({% asset rendergarden-3.png @path %})
 
-It took me a while to realize this was because my email somehow wasn't verified by Adobe. If you notice from the table before, the ungraceful completions were (1) only on the main MacBook Pro which needed to be licensed and (2) only occured towards the end, probably when the check was failing. Opening up the actual After Effects program displayed the following prompt.
+It took me a while to realize this was because I never verified my email with by Adobe! If you notice from the table before, the ungraceful completions were (1) only on the main MacBook Pro which needed to be licensed and (2) only occured towards the end, probably when the check was failing. Opening up the actual After Effects program displayed the following prompt.
 
 ![]({% asset rendergarden-4.png @path %})
 
-In either case, the actual segement completed. However in such cases, **before issuing CTRL+C** to "gracefully" exit RenderGarden Terminal window, **check if the file needs to be renamed** to `complete_` first. Otherwise another free node may overwrite the actually completed segment.
+In either case, the actual segement completed. If you encounter this situation, **before issuing CTRL+C** to "gracefully" exit RenderGarden Terminal window, **check if the file needs to be renamed** to `complete_` first. Otherwise another free node may overwrite the actually completed segment.
+
+Basically, make sure you verify your email with Adobe first or you'll be a newb like me.
 
 ### Final Thoughts
 
-RenderGarden is amazing. If you're planning to use After Effects for a long render, definitely check it out and procure render-only licenses for any plugins you'll be using on the network. A personal best practice is to manually verify/scrub segments for proper length and sync issues before running `combine` nodes. 
+RenderGarden is amazing. If you're planning to use After Effects for a long render, definitely check it out and procure render-only licenses for any plugins you'll be using on the network.
+
+If it's your first time, I suggest manually verify/scrub segments for proper length and sync issues before running `combine` nodes.
 
 Happy gardening! 🌱
 
