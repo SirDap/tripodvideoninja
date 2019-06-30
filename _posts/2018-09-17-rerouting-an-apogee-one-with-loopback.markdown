@@ -28,7 +28,7 @@ Using a combination of Rogue Amoeba's [Loopback](https://rogueamoeba.com/loopbac
 4. Add a new **Output Device** directly to the right of the input device. It will automatically connect. Select the virtual audio device under **Audio Device**.
    ![]({% asset loopback-apogee-3.png @path %})
 5. Use Wirecast (or similar) to add the virtual audio device onto a new, active layer. It should be receiving audio on both the L and R channels.
-6. Mute the audio from the camera on a different layer, and stream.
+6. Mute the original camera audio on the other layer and start streaming.
 
 ### What About Soundflower?
 
