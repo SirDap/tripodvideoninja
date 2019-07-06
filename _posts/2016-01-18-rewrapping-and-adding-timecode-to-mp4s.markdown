@@ -5,6 +5,9 @@ subtitle: "Rewrapping MP4s as MOVs to Add Timecode"
 date:   2016-01-24 11:37:23 -0500
 categories: codecs
 ---
+
+[Updated July 5, 2019 with wording and ordering changes.]
+
 * TOC
 {:toc}
 
@@ -27,97 +30,6 @@ Short answer: EditReady is the most robust rewrapper out there, and can even be 
 The following tests were performed using AVCHD files already in MOV format as imported on a MBP with Photos. They however, did not have timecode.
 
 After timecode was added to the MOV container, the file was opened with QuickTime Player 7 and Compressor 4 to verify timecode. The file was then transcoded with Compressor to check its integrity. 
-
-### The "B" List
-
-Sometimes "B" is generous.
-
-#### ffmpeg Woes
-
-ffmpeg is the open source king for video compression. Many programs like Handbrake are built on it, so I was excited to learn it can add timecode as well! To rewrap a container with timecode the syntax is like so:
-
-`ffmpeg -i Day_1.mov -codec copy -timecode 04:25:50.00 Day_1.ffmpeg.mov`
-
-Note: the timecode seems to be automatically calculated based on the framerate of the video track. Also, by default, ffmpeg only preserves 1 video and 1 audio track.
-
-While ffmpeg successfully added timecode, the resulting file was a disaster for editing. The file systematically quits @ 20 seconds on any render in Compressor, suggesting some kind of container corruption.
-
-![Timecode added by ffmpeg fails to render with Compressor]({% asset timecode-ffmpeg-compressor-fail.png @path %})
-
-Furthermore, although the file did play in QuickTime Player X and QuickTime Player 7, **scrubbing the playhead sometimes caused the application to crash**!
-
-![Timecode added by ffmpeg crashes during QT7 scrubbing]({% asset timecode-ffmpeg-qt7-scrubbing-fail.png @path %})
-
-The file crashed when scrubbing in Compressor as well.
-
-![Cannot scrub ffmped rewrapped file]({% asset timecode-ffmpeg-compressor42-scrubbing-fail.png @path %})
-
-Lastly, the first frame is often black. Note in particular the strange, red vertical lines in Compressor's preview window.
-
-![Black opening frame in Compressor]({% asset timecode-ffmpeg-compressor-black-screen.png @path %})
-
-In a way, ffmpeg is a video delivery king, but perhaps not an editing king.
-
-#### VideoToolShed MP4 to QuickTime
-
-[Videotoolshed's MP4 to QuickTime](http://www.videotoolshed.com/product/66/mp4-to-quicktime/3) was another contender, but starting from version 6 the program uses ffmpeg under the hood, to increase compatibility with other programs. So it too exhibits the same problems and failed to render with Compressor.
-
-![Timecode added by mp4toqt61 fails to render with Compressor]({% asset timecode-mp4toqt61-compressor-fail.png @path %})
-
-Also, the VideoToolShed GUI is very rough around the edges:
-
-* Only detects MP4 files. So to add timecode to existing MOVs, the files first have to be renamed to trick the program to open them.
-* When processing the program won't come back to the foreground. Hovering with the mouse shows the little color pinwheel...
-* Files also can't be dragged and dropped, etc.
-
-So ya, the little things—and some big things as well.
-
-#### CinePlay
-
-[CinePlay by Digital Rebellion](https://www.digitalrebellion.com/cineplay/) is almost like QuickTime X Pro and could serve as the 64-bit successor to [SimpleMovieX](http://simplemoviex.com/SimpleMovieX/index.var). CinePlay offers numerous vital features for editing:
-
-* Displays timecode
-* Text input of timecode location
-* Add markers and annotations—including drawings! (Chapters not visible automatically in Compressor/FCP X, but can be exported to text files and imported manually)
-* Set ins and outs (standard FCP7 keyboard shortcuts)
-* Many others like video rotation, timecode and titlesafe overlays, etc.
-
-Moreover, CinePlay's Export window offers a rewrapping option ([see their own blog post here](https://www.digitalrebellion.com/blog/posts/rewrapping_mp4_to_mov_with_cineplay)) which automatically adds NDF timecode starting at 00:00:00:00—perfect for changing MP4 containers to MOV. The process however cannot be scripted from the CLI, but could be, in principle, via AppleScript to queue multiple files for export at at time.
-
-![]({% asset cineplay-rewrap-export.png @path %})
-
-The rewrapped MOV itself appears to have full structural integrity. No funny glitches and crashes when processing the file. It does however start with a black image sometimes—but unlike the ffmpeg one, this doesn't show any funny red lines in Compressor's preview window.
-
-![]({% asset cineplay-black-screen-timecode-starts-at-zero.png @path %})
-![]({% asset cineplay-compressor-black-screen.png @path %})
-
-It also passes the Compressor test: no crash at the lovely 20 second mark.
-
-![]({% asset cineplay-compressor-success.png @path %})
-
-The rewrapped MOV is roughly the same size, within a few bytes.
-
-![]({% asset timecode-test-original-stats.png @path %})
-![]({% asset cineplay-rewrap-stats.png @path %})
-
-However, while the original was `159164` frames, the rewrapped one is `159111`.
-
-![]({% asset rewrap-original-frame-count.png @path %})
-![]({% asset cineplay-rewrap-missing-frames.png @path %})
-
-The first setback is CinePlay changes the File Creation Date of the file (i.e. the one that's read from `GetFileInfo` from the Terminal) so the date in FCP X is changed from the original to the date of the rewrapping. Also note, though how the timecode duration *appears* longer in FCP X ... This I take is because the timecode track is NDF but the FR is 29.97, and/or some metadata is incorrect in CinePlay's rewrap. (In Compressor, the last frame's timecode is `01:28:23:21`.)
-
-![]({% asset rewrap-editready-file-dates.png @path %})
-
-Also, the frame rate of the rewrapped footage is no longer 29.97 but instead 30, as told to Compressor.
-
-![]({% asset cineplay-changes-framerate-metadata.png @path %})
-
-Another hiccup was ... the Compressor render never completed!
-
-![]({% asset cineplay-compressor-hang-bad-file.png @path %})
-
-Turns out the original movie file I inherited was somehow corrupt. (Photos probably isn't the best tool to import AVCHD footage.) Not CinePlay's fault at all but it does knock it out of first place!
 
 ### EditReady Lives up to Its Name
 
@@ -161,3 +73,95 @@ Thus, always rewrap footage first before beginning editing.
 ### Conclusion
 
 At the end of the day, EditReady is the most reliable way of rewrapping and adding timecode to any footage. Repairing even small nicks from original footage, it serves a a trustworthy partner in the initial post-processing logging and transfer workflow.
+
+### Appendix: The "B" List
+
+Sometimes "B" is generous. Here's what doesn't work.
+
+#### ffmpeg Woes
+
+ffmpeg is the open source king for video compression. Many programs like Handbrake are built on it, so I was excited to learn it can add timecode as well! To rewrap a container with timecode the syntax is like so:
+
+`ffmpeg -i Day_1.mov -codec copy -timecode 04:25:50.00 Day_1.ffmpeg.mov`
+
+Note: the timecode seems to be automatically calculated based on the framerate of the video track. Also, by default, ffmpeg only preserves 1 video and 1 audio track.
+
+While ffmpeg successfully added timecode, the resulting file was a disaster for editing. The file systematically quits @ 20 seconds on any render in Compressor, suggesting some kind of container corruption.
+
+![Timecode added by ffmpeg fails to render with Compressor]({% asset timecode-ffmpeg-compressor-fail.png @path %})
+
+Furthermore, although the file did play in QuickTime Player X and QuickTime Player 7, **scrubbing the playhead sometimes caused the application to crash**!
+
+![Timecode added by ffmpeg crashes during QT7 scrubbing]({% asset timecode-ffmpeg-qt7-scrubbing-fail.png @path %})
+
+The file crashed when scrubbing in Compressor as well.
+
+![Cannot scrub ffmped rewrapped file]({% asset timecode-ffmpeg-compressor42-scrubbing-fail.png @path %})
+
+Lastly, the first frame is often black. Note in particular the strange, red vertical lines in Compressor's preview window.
+
+![Black opening frame in Compressor]({% asset timecode-ffmpeg-compressor-black-screen.png @path %})
+
+In a way, ffmpeg is a video delivery king, but perhaps not an editing king.
+
+#### VideoToolShed MP4 to QuickTime
+
+[Videotoolshed's MP4 to QuickTime](http://www.videotoolshed.com/product/66/mp4-to-quicktime/3) was another contender, but starting from version 6 the program uses ffmpeg under the hood, to increase compatibility with other programs. So it too exhibits the same problems and failed to render with Compressor.
+
+![Timecode added by mp4toqt61 fails to render with Compressor]({% asset timecode-mp4toqt61-compressor-fail.png @path %})
+
+Also, the VideoToolShed GUI is very rough around the edges:
+
+* Only detects MP4 files. So to add timecode to existing MOVs, the files first have to be renamed to trick the program to open them.
+* When processing the program won't come back to the foreground. Hovering with the mouse shows the little color pinwheel...
+* Files also can't be dragged and dropped, etc.
+
+So ya, the little things—and some big things as well.
+
+#### CinePlay
+
+[CinePlay by Digital Rebellion](https://www.digitalrebellion.com/cineplay/) is almost like QuickTime X Pro and could serve as a solid competitor to [SimpleMovieX](http://simplemoviex.com/SimpleMovieX/index.var). CinePlay offers numerous vital features for editing:
+
+* Timecode display
+* Text input of timecode location
+* Add markers and annotations—including drawings! (Chapters not visible automatically in Compressor/FCP X, but can be exported to text files and imported manually)
+* Set ins and outs (standard FCP7 keyboard shortcuts)
+* Many others like video rotation, timecode and titlesafe overlays, etc.
+
+Moreover, CinePlay's Export window offers a rewrapping option ([see their own blog post here](https://www.digitalrebellion.com/blog/posts/rewrapping_mp4_to_mov_with_cineplay)) which automatically adds NDF timecode starting at 00:00:00:00—perfect for changing MP4 containers to MOV. The process however cannot be scripted from the CLI, but could be, in principle, via AppleScript to queue multiple files for export at at time.
+
+![]({% asset cineplay-rewrap-export.png @path %})
+
+The rewrapped MOV itself appears to have full structural integrity. No funny glitches and crashes when processing the file. It does however start with a black image sometimes—but unlike the ffmpeg one, this doesn't show any funny red lines in Compressor's preview window.
+
+![]({% asset cineplay-black-screen-timecode-starts-at-zero.png @path %})
+![]({% asset cineplay-compressor-black-screen.png @path %})
+
+It also passes the Compressor test: no crash at the lovely 20 second mark.
+
+![]({% asset cineplay-compressor-success.png @path %})
+
+The rewrapped MOV is roughly the same size, within a few bytes.
+
+![]({% asset timecode-test-original-stats.png @path %})
+![]({% asset cineplay-rewrap-stats.png @path %})
+
+However, while the original was `159164` frames, the rewrapped one is `159111`.
+
+![]({% asset rewrap-original-frame-count.png @path %})
+![]({% asset cineplay-rewrap-missing-frames.png @path %})
+
+The first setback is CinePlay changes the File Creation Date of the file (i.e. the one that's read from `GetFileInfo` from the Terminal) so the date in FCP X is changed from the original to the date of the rewrapping. Also note, though how the timecode duration *appears* longer in FCP X. This I reckon is because the timecode track is NDF but the FR is 29.97, and/or some metadata is incorrect in CinePlay's rewrap. (In Compressor, the last frame's timecode is `01:28:23:21`.)
+
+![]({% asset rewrap-editready-file-dates.png @path %})
+
+Also, the frame rate of the rewrapped footage is no longer 29.97 but instead 30, as told to Compressor.
+
+![]({% asset cineplay-changes-framerate-metadata.png @path %})
+
+Another rather serious hiccup was... the Compressor render never completed!
+
+![]({% asset cineplay-compressor-hang-bad-file.png @path %})
+
+Turns out the original movie file I inherited was somehow corrupt. (Photos probably isn't the best tool to import AVCHD footage.) Not CinePlay's fault at all but it does knock it out of first place for fault tolerance!
+
