@@ -3,7 +3,7 @@ layout: post
 title:  "The Quest for Media Management"
 subtitle: "KeyFlow Pro, I choose you!"
 date:   2018-09-24 11:31:32 Z
-categories: storage
+categories: metadata
 ---
 
 *[This article was originally drafted in January 2016. As you can see, it has been quite a quest...]*

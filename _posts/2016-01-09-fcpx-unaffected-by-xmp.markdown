@@ -3,7 +3,7 @@ layout: post
 title:  "FCP X 10.2.2 Unaffected by XMP Metadata Changes"
 subtitle: "Goodbye fear of broken media links!"
 date:   2016-01-09 20:37:41 -0500
-categories: storage
+categories: metadata
 ---
 *[Updated September 28, 2018 wording changes for clarity.]*
 
