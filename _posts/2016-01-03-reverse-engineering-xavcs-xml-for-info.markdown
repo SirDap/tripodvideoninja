@@ -5,7 +5,7 @@ date:   2016-01-03 18:15:56 -0500
 categories: codecs
 ---
 
-[Updated May 14, 2018 with wording changes.]
+*[Updated May 14, 2018 with wording changes.]*
 
 * TOC
 {:toc}
