@@ -10,7 +10,7 @@ categories: codecs
 * TOC
 {:toc}
 
-## Introduction
+### Introduction
 
 Many new Sony video cameras (like the [FDR-AX100](http://www.sony.com/electronics/handycam-camcorders/fdr-ax100) and [HDR-CX900](http://www.sony.com/electronics/handycam-camcorders/hdr-cx900)) record into the XAVC-S format. XAVC-S writes to MP4 containers, and alongside them sit nice little XML files with metadata.
 
