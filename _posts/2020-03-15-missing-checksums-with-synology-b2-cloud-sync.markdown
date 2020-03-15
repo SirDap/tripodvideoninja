@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Caveats with Archiving TBs from Synology to B2
+title:  Caveats Archiving TBs from Synology to B2
 subtitle: Missing Checksums From Cloud Sync
 date:   2020-03-15 15:21:00 Z
 categories: storage
