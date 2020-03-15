@@ -6,9 +6,10 @@ date:   2020-03-15 15:21:00 Z
 categories: storage
 ---
 
+*[This article was originally drafted in September 2018. At long last...]*
+
 * TOC
 {:toc}
-*[This article was originally drafted in September 2018. At long last...]*
 
 ### The Task
 
