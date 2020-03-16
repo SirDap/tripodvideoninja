@@ -25,7 +25,7 @@ Cloud Sync even offers an `Advanced consistency check` option to compare checksu
 
 ### Hash me Not
 
-Although I had selected the option for **Advanced consistency check** I was surprised to realize not all files uploaded had their checksums written in B2. Only the small ones did.
+Although I had selected the checksum option I was surprised to realize not all files uploaded had their checksums written in B2. Only the small ones did.
 
 ![]({% asset synology-cloudsync-b2-2.png @path %})
 
