@@ -51,7 +51,7 @@ And what the bottom of the page say?
 
 ### Whose Limitation is it Anyway?
 
-To be clear, the checksum limitation is on the Synology end. Cloud Sync is simply not SHA-1 checksums to Backblaze. B2 in fact supports and encourages[^4] sending checksums for large files— and they can even be sent at the end!
+To be clear, the checksum limitation is on the Synology end. Cloud Sync is simply not sending SHA-1 checksums to Backblaze. B2 in fact supports and encourages[^4] sending checksums for large files— and they can even be sent at the end!
 
 So what can upload to B2 with checksums for large files?
 
