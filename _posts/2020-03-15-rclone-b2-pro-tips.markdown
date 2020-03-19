@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Rclone Video Archival Guide With Backblaze B2
-subtitle: Double check your work
+subtitle: Pro Tips Cheat Sheet
 date:   2020-03-18 23:57:00 Z
 categories: storage
 ---
