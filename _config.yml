@@ -24,3 +24,8 @@ reading_time:
   second_plural: "sec"
   minute_singular: "min"
   minute_plural: "min"
+
+algolia:
+  application_id: 3OKHIO3QMO
+  index_name:     tripodninja
+  search_only_api_key: b262a8e29b271995e7731e5381609ff3
