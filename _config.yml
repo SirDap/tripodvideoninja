@@ -18,10 +18,9 @@ github_username: NaanProphet
 markdown: kramdown
 theme: minima
 google_analytics: UA-121779698-1
-plugins:
-- jekyll-assets
 
+# Plugin settings
 reading_time:
-  second_plural: "sec"    # default: seconds
-  minute_singular: "min"  # default: minute
-  minute_plural: "min"    # default: minutes
+  second_plural: "sec"
+  minute_singular: "min"
+  minute_plural: "min"
