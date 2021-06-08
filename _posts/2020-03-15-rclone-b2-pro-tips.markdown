@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Rclone Video Archival Guide With Backblaze B2
-subtitle: Pro Tips Cheat Sheet
+title: Rclone Cloud Archival Pro Tips
+subtitle: Archival Guide With Backblaze B2
 date:   2020-03-18 23:57:00 Z
 categories: storage
 ---

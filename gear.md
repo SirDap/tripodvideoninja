@@ -12,31 +12,35 @@ permalink: /gear/
 
 #### Computers
 * [~~2007 MacBook Pro 2,2~~](http://www.everymac.com/systems/apple/macbook_pro/specs/macbook-pro-core-2-duo-2.16-15-specs.html)
-  * 15.4" Matte Screen
-  * 2.16 GHz Intel Core 2 Duo
-  * ATI Radeon X1600 128 MB
   * Sold on 9/2015. Firewire ports starting acting buggy when recording (overheating issue), SSD compatibility was also limited
+  * Specs
+    * 15.4" Matte Screen
+    * 2.16 GHz Intel Core 2 Duo
+    * ATI Radeon X1600 128 MB
 * [2012 MacBook Pro 9,1](http://www.everymac.com/systems/apple/macbook_pro/specs/macbook-pro-core-i7-2.6-15-mid-2012-unibody-usb3-specs.html)
-  * 15.4" Matte Screen
-  * 2.6 GHz Quad Core Intel Core i7
-  * NVIDIA GeForce GT 650M 1024 MB - realized from the first MBP that GPU memory is well worth the investment
-  * 8 GB 1600 MHz DDR3 RAM
-  * [1TB Samsung 840 EVO SSD](http://www.samsung.com/us/support/owners/product/MZ-7TE1T0BW)
-  * One Thunderbolt 2 port, 2 USB 3.0 ports
   * This is the main workhorse and road warrior. Only limitation of this guy is the 1 thunderbolt port
+  * Specs
+    * 15.4" Matte Screen
+    * 2.6 GHz Quad Core Intel Core i7
+    * NVIDIA GeForce GT 650M 1024 MB - realized from the first MBP that GPU memory is well worth the investment
+    * 8 GB 1600 MHz DDR3 RAM
+    * [1TB Samsung 840 EVO SSD](http://www.samsung.com/us/support/owners/product/MZ-7TE1T0BW)
+    * One Thunderbolt 2 port, 2 USB 3.0 ports
 * [2014 MacBook Air 6,2](http://www.everymac.com/systems/apple/macbook-air/specs/macbook-air-core-i7-1.7-13-early-2014-specs.html)
-  * 13.3" Screen
-  * 1.7 GHz Intel Core i7
-  * Intel HD Graphics 5000
-  * (2) USB 3.0, (1) Thunderbolt, (1) SD Card, Headphone Out
   * "Everything else" laptop, for checking YouTube streams, notes, etc.
+  * Specs
+    * 13.3" Screen
+    * 1.7 GHz Intel Core i7
+    * Intel HD Graphics 5000
+    * (2) USB 3.0, (1) Thunderbolt, (1) SD Card, Headphone Out
 * [2011 iMac 11,2](https://everymac.com/systems/apple/imac/specs/imac-core-i5-2.7-27-inch-aluminum-mid-2011-thunderbolt-specs.html)
-  * 27" Screen
-  * 2.7 Ghz Quad Core Intel Core i5
-  * Two Thunderbolt 2 ports, four USB 2.0 ports
-  * AMD Radeon HD 6770M 512 MB
-  * 16 GB 1333 MHz DDR3 RAM (upgraded after)
   * This machine is ideal for ProRes multicam editing and AE renders, but is far slower than the 2012 MBP for final H264 renders
+  * Specs
+    * 27" Screen
+    * 2.7 Ghz Quad Core Intel Core i5
+    * Two Thunderbolt 2 ports, four USB 2.0 ports
+    * AMD Radeon HD 6770M 512 MB
+    * 16 GB 1333 MHz DDR3 RAM (upgraded after)
 
 
 #### Hardware
@@ -91,7 +95,7 @@ permalink: /gear/
 
 #### Software
 
-##### Current
+##### Current Rig
 
 * Final Cut Pro X
 * Compressor 4.4
