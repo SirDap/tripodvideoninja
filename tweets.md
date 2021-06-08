@@ -4,7 +4,7 @@ title: Tweets
 permalink: /tweets/
 ---
 
-When time is short, my Twitter feed essentially serves as a digital notepad. Lucky for others, that means each idea is capped at 260 characters!
+When time is short, my Twitter feed serves as a digital notepad. Lucky for others, that means each idea is capped at 260 characters!
 
 <br />
 
