@@ -12,13 +12,13 @@ Over the years, I've filmed student recitals, professional recitals, and streami
 
 #### 2017 - 2020
 
-Dance Recitals and Productions
-Music Videos
-Livestream Music Shows
-Yoga Asana Filming (Vedic Health)
-Classical Music Video Podcasts (Raga Chhandayan)
-YouTube Closed Captions in multiple languages
-Cloud Archival
+* Dance Recitals and Productions
+* Music Videos
+* Livestream Music Shows
+* Yoga Asana Filming (Vedic Health)
+* Classical Music Video Podcasts (Raga Chhandayan)
+* YouTube Closed Captions in multiple languages
+* Cloud Archival
 
 {% youtube _NLiIT0puIM %}
 {% youtube LouI4Z48WOg %}
@@ -26,12 +26,12 @@ Cloud Archival
 
 #### 2012 - 2016
 
-House Concerts (Baithaks)
-Professional Recitals
-Music Festival Livestreams
-Non-profit Retreats and Lecture Shorts
-Commercial DVD Production
-Tape Digitization (MiniDV, Hi8, VHS)
+* House Concerts (Baithaks)
+* Professional Recitals
+* Music Festival Livestreams
+* Non-profit Retreats and Lecture Shorts
+* Commercial DVD Production
+* Tape Digitization (MiniDV, Hi8, VHS)
 
 {% youtube uEVzR4e2hCk %}
 {% youtube Uc4cTu30OVM %}
@@ -40,11 +40,11 @@ Tape Digitization (MiniDV, Hi8, VHS)
 
 #### 2009 - 2011 (UMD)
 
-Student Recitals
-Competitions and Portfolios
-Podcast Creation
-Lectures and Seminars (Physics Department)
-DVD Digitization
+* Student Recitals
+* Competitions and Portfolios
+* Podcast Creation
+* Lectures and Seminars (Physics Department)
+* DVD Digitization
 
 {% youtube BikSki_KMlg %}
 {% youtube yUlEsaBRJ8A %}
