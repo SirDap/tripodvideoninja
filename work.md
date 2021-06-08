@@ -35,10 +35,12 @@ Over the years, I've filmed student recitals, professional recitals, and streami
 
 {% youtube uEVzR4e2hCk %}
 {% youtube Uc4cTu30OVM %}
-{% youtube ROuD-AdzcvQ?listPL8C-cCqoM2x-wkMu4kDnmWiqXZcQ-mZTW %}
+{% youtube ROuD-AdzcvQ?list=PL8C-cCqoM2x-wkMu4kDnmWiqXZcQ-mZTW %}
 
 
-#### 2009 - 2011 (UMD)
+#### 2009 - 2011
+
+UMD, where it all started.
 
 * Student Recitals
 * Competitions and Portfolios
