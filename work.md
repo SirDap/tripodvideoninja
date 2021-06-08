@@ -10,7 +10,7 @@ Over the years, I've filmed student recitals, professional recitals, and streami
 {:toc}
 
 
-#### 2017 - 2020
+### 2017 - 2020
 
 * Dance Recitals and Productions
 * Music Videos
@@ -24,7 +24,7 @@ Over the years, I've filmed student recitals, professional recitals, and streami
 {% youtube LouI4Z48WOg %}
 
 
-#### 2012 - 2016
+### 2012 - 2016
 
 * House Concerts (Baithaks)
 * Professional Recitals
@@ -38,7 +38,7 @@ Over the years, I've filmed student recitals, professional recitals, and streami
 {% youtube ROuD-AdzcvQ?list=PL8C-cCqoM2x-wkMu4kDnmWiqXZcQ-mZTW %}
 
 
-#### 2009 - 2011
+### 2009 - 2011
 
 UMD, where it all started.
 
